@@ -18,7 +18,7 @@
 			oracle.jdbc.OracleDriver
 		</property>
 		<property name="myeclipse.connection.profile">TMMS</property>
-		<mapping resource="com/TMMS/Main/bean/UsersTest.hbm.xml" />
+		<mapping resource="com/TMMS/Main/bean/Users.hbm.xml" />
 
 	</session-factory>
 

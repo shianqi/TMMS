@@ -3,11 +3,11 @@
 <struts>
 	<package name="default" namespace="/" extends="struts-default, json-default">
 
-	<action name="Login" class="com.TMMS.Main.action.Login">
-		<param name="username"></param>
-		<param name="password"></param>
+
+	<action name="Login" class="com.TMMS.Main.action.LoginAction">
+		<param name="U_Email"></param>
+		<param name="U_Pwd"></param>
 		<result name="success">/JSP/Success.jsp</result>
 		<result name="error">/JSP/Error.jsp</result>
-	</action>
-	</package>
+	</action></package>
 </struts>   

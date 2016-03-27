@@ -24,5 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <body>
     Error. <br>
+    username:${U_Email}<br>
+    password:${U_Pwd}<br>
   </body>
 </html>
