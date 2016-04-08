@@ -1,12 +1,14 @@
 package com.TMMS.Main.DAO;
 
 import java.util.List;
+import java.util.Set;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 import com.TMMS.Main.bean.Users;
 
 /**
@@ -17,7 +19,7 @@ import com.TMMS.Main.bean.Users;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see com.TMMS.Main.DAO.Users
+ * @see com.TMMS.Main.bean.Users
  * @author MyEclipse Persistence Tools
  */
 public class UsersDAO extends BaseHibernateDAO {
@@ -25,9 +27,13 @@ public class UsersDAO extends BaseHibernateDAO {
 	// property constants
 	public static final String _UPWD = "UPwd";
 	public static final String _UNAME = "UName";
-	public static final String _UTYPE = "UType";
 	public static final String _UEMAIL = "UEmail";
 	public static final String _UPHONE = "UPhone";
+	public static final String _UPT = "UPT";
+	public static final String _UPC = "UPC";
+	public static final String _UPB = "UPB";
+	public static final String _UPF = "UPF";
+	public static final String _UPS = "UPS";
 	public static final String _USTATE = "UState";
 
 	public void save(Users transientInstance) {
@@ -56,7 +62,7 @@ public class UsersDAO extends BaseHibernateDAO {
 		log.debug("getting Users instance with id: " + id);
 		try {
 			Users instance = (Users) getSession().get(
-					"com.TMMS.Main.DAO.Users", id);
+					"com.TMMS.Main.bean.Users", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -68,7 +74,7 @@ public class UsersDAO extends BaseHibernateDAO {
 		log.debug("finding Users instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("com.TMMS.Main.DAO.Users")
+					.createCriteria("com.TMMS.Main.bean.Users")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -102,16 +108,32 @@ public class UsersDAO extends BaseHibernateDAO {
 		return findByProperty(_UNAME, UName);
 	}
 
-	public List findByUType(Object UType) {
-		return findByProperty(_UTYPE, UType);
-	}
-
 	public List findByUEmail(Object UEmail) {
 		return findByProperty(_UEMAIL, UEmail);
 	}
 
 	public List findByUPhone(Object UPhone) {
 		return findByProperty(_UPHONE, UPhone);
+	}
+
+	public List findByUPT(Object UPT) {
+		return findByProperty(_UPT, UPT);
+	}
+
+	public List findByUPC(Object UPC) {
+		return findByProperty(_UPC, UPC);
+	}
+
+	public List findByUPB(Object UPB) {
+		return findByProperty(_UPB, UPB);
+	}
+
+	public List findByUPF(Object UPF) {
+		return findByProperty(_UPF, UPF);
+	}
+
+	public List findByUPS(Object UPS) {
+		return findByProperty(_UPS, UPS);
 	}
 
 	public List findByUState(Object UState) {

@@ -1,22 +1,29 @@
-package com.TMMS.Main.service;
+package com.TMMS.Test.service;
+
+import org.junit.Test;
 
 import com.TMMS.Main.DAO.UsersDAO;
 import com.TMMS.Main.bean.Users;
+import com.TMMS.Main.util.MD5;
 
 public class UsersService {
-	public boolean login(long username , String password){
+	@Test
+	public void getPasswordSecret(){
+		String password = "121021";
+		System.out.println(new MD5().encryptPassword(password));
+	}
+	
+	@Test
+	public void login(){
+		long username = 141122427;
+		String password = "121021";
 		UsersDAO usersDAO = new UsersDAO();
 		Users user = usersDAO.findById(username);
 		if(password.equals(user.getUPwd())){
 			System.out.println("µÇÂ½³É¹¦");
 			System.out.println("»¶Ó­Äú"+user.getUName());
-			return true;
 		}else{
 			System.out.println("µÇÂ½Ê§°Ü");
-			return false;
 		}
-		
 	}
-	
-	
 }

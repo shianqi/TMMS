@@ -2,12 +2,13 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 	<package name="default" namespace="/" extends="struts-default, json-default">
-
-
-	<action name="Login" class="com.TMMS.Main.action.LoginAction">
-		<param name="U_Email"></param>
-		<param name="U_Pwd"></param>
-		<result name="success">/JSP/Success.jsp</result>
-		<result name="error">/JSP/Error.jsp</result>
-	</action></package>
+		<action name="login" class="com.TMMS.Main.action.loginAction">
+			<result name="success" type="json">
+				<param name="root">loginModel</param>
+				<param name="excludeNullProperties">true</param>
+				<param name="noCache">true</param>
+				<param name="charSet">UTF-8</param>
+			</result>
+		</action>
+	</package>
 </struts>   
