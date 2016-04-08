@@ -2,17 +2,16 @@ package com.TMMS.Main.action;
 
 import java.util.Map;
 
-import com.TMMS.Main.Model.loginModel;
+import com.TMMS.Main.bean.Users;
 import com.TMMS.Main.service.UsersService;
 import com.TMMS.Main.util.MD5;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class loginAction extends ActionSupport{
+public class LoginAction extends ActionSupport{
 	private long username;
 	private String password;
 	private UsersService usersService;
-	private loginModel loginModel;
 
 	public long getUsername() {
 		return username;
@@ -38,31 +37,31 @@ public class loginAction extends ActionSupport{
 		this.usersService = usersService;
 	}
 
-	public loginModel getLoginModel() {
-		return loginModel;
-	}
-
-	public void setLoginModel(loginModel loginModel) {
-		this.loginModel = loginModel;
-	}
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("111");
-		loginModel = new loginModel();
 		usersService = new UsersService();
+		Users user = usersService.getUserDAO(username);
+		Map<String , Object> session = ActionContext.getContext().getSession();
 		if(password!=null&&usersService.login(username, new MD5().encryptPassword(password))){
 			//获取session对象
-			Map<String , Object> session = ActionContext.getContext().getSession();
-			session.put(""+username, username);
-			loginModel.setStatus(1);
-			loginModel.setErrorCode("");
+			System.out.println(user.getUPT()+"");
+			session.put("U_ID", username);
+			session.put("U_State", user.getUState());
+			session.put("U_Name", user.getUName());
+			session.put("U_P_T", user.getUPT().toString());
+			session.put("U_P_C", user.getUPC().toString());
+			session.put("U_P_B", user.getUPB().toString()); 
+			session.put("U_P_F", user.getUPF().toString());
+			session.put("U_P_S", user.getUPS().toString());
+			//密码判断状态
+			session.put("state","1");
+			return SUCCESS;
 		}else{
-			loginModel.setStatus(0);
-			loginModel.setErrorCode("用户名或密码错误");
+			session.put("state","0");
+			return ERROR;
 		}
-		return SUCCESS;
 	}
 	
 }
