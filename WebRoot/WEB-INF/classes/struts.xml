@@ -10,5 +10,29 @@
 				/index.jsp
 			</result>
 		</action>
+		<action name="showUserInformation" class="com.TMMS.Main.action.showUserInformationAction">
+			<result name="success">
+				/JSP/HTML/tab1/show_user_information.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="fixUserInformation" class="com.TMMS.Main.action.fixUserInformationAction">
+			<result name="success">
+				/JSP/HTML/tab1/fix_user_information.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="fixUserInformationDown" class="com.TMMS.Main.action.fixUserInformationActionDown">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 </struts>

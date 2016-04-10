@@ -9,15 +9,15 @@ import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class LoginAction extends ActionSupport{
-	private long username;
+	private String username;
 	private String password;
 	private UsersService usersService;
 
-	public long getUsername() {
+	public String getUsername() {
 		return username;
 	}
 
-	public void setUsername(long username) {
+	public void setUsername(String username) {
 		this.username = username;
 	}
 
@@ -42,9 +42,16 @@ public class LoginAction extends ActionSupport{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		usersService = new UsersService();
-		Users user = usersService.getUserDAO(username);
 		Map<String , Object> session = ActionContext.getContext().getSession();
-		if(password!=null&&usersService.login(username, new MD5().encryptPassword(password))){
+		Users user;
+		try {
+			 user= usersService.getUserDAO(Long.parseLong(username));
+		} catch (Exception e) {
+			session.put("state","0");
+			return ERROR;
+		}
+		
+		if(password!=null&&usersService.login(Long.parseLong(username), new MD5().encryptPassword(password))){
 			//获取session对象
 			System.out.println(user.getUPT()+"");
 			session.put("U_ID", username);

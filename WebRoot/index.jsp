@@ -99,11 +99,11 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 		<%
 			}
 		%>
-		<input type="text" name="username" placeholder="用户名" required="required" />
+		<input type="tel" name="username" placeholder="用户名" required="required" />
 		<input type="password" name="password" placeholder="密码" required="required" />
 		<button type="submit" class="btn btn-primary btn-block btn-large">登陆</button>
 		<br>
-		<a id="forget_password" href="http://localhost:8080/TMMS/login.actionJSP/forget_password.jsp">忘记密码？</a>
+		<a id="forget_password" href="http://localhost:8080/TMMS/JSP/forget_password.jsp">忘记密码？</a>
 	</form>
 </div>
 <div style="text-align:center;">

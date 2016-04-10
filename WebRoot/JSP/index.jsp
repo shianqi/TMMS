@@ -25,8 +25,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">个人信息<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab1/show_user_information.html" data-index="1">查看基本信息</li>
-                                        <li class="J_menuItem" href="html/tab1/fix_user_information.html" data-index="1">修改基本信息</li>
+                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/showUserInformation.action" data-index="1">查看基本信息</li>
+                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/fixUserInformation.action" data-index="1">修改基本信息</li>
                                         <li class="J_menuItem" href="html/tab1/fix_user_password.html" data-index="2">修改密码</li>
                                     </ul>
                                 </dd>
@@ -214,7 +214,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="ad-welcom">
                                 <div class="ad-wel-img"><img src="JSP/image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">
-                                    <div class="font-wel">欢迎您！<strong>${username}</strong></div>
+                                    <div class="font-wel">欢迎您！<strong>${U_Name}</strong></div>
                                     <div class="font-wel"><a href="javascript:;"><strong>【退出】</strong></a></div>
                                 </div>
                             </div>

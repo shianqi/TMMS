@@ -26,6 +26,4 @@ public class UsersService {
 		Users user = usersDAO.findById(username);
 		return user;
 	}
-	
-	
 }
