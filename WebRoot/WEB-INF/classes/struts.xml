@@ -34,5 +34,13 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="fixUserPassword" class="com.TMMS.Main.action.fixUserPasswordAction">
+			<result name="success">
+				/JSP/HTML/tab1/fix_user_password.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 </struts>

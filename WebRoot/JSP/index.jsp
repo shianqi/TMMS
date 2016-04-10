@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/showUserInformation.action" data-index="1">查看基本信息</li>
                                         <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/fixUserInformation.action" data-index="1">修改基本信息</li>
-                                        <li class="J_menuItem" href="html/tab1/fix_user_password.html" data-index="2">修改密码</li>
+                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/fixUserPassword.action" data-index="2">修改密码</li>
                                     </ul>
                                 </dd>
                                 <dd>
