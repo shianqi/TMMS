@@ -26,4 +26,17 @@ public class UsersService {
 		Users user = usersDAO.findById(username);
 		return user;
 	}
+	public boolean fixUserInformation(long username,String uName,String uPhone,String uEmail){
+		UsersDAO usersDAO = new UsersDAO();
+		try {
+			Users user = usersDAO.findById(username);
+			user.setUName(uName);
+			user.setUPhone(uPhone);
+			user.setUEmail(uEmail);
+			usersDAO.save(user);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

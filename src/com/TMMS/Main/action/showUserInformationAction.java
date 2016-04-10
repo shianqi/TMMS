@@ -24,7 +24,7 @@ public class showUserInformationAction extends ActionSupport{
 		// TODO Auto-generated method stub
 		Map<String , Object> session = ActionContext.getContext().getSession();
 		System.out.println(session.get("state")); 
-		if(session.get("state")==null||session.get("state")=="0"){
+		if(session.get("state")==null||session.get("state").equals("")){
 			return ERROR; 
 		}
 		long username = Long.valueOf(String.valueOf(session.get("U_ID")));

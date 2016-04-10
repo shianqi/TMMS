@@ -30,23 +30,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </div>
 	      <div class="panel-body">
 	      		<%
-	            	if(request.getSession().getValue("U_P_T")=="true"){
+	            	if(request.getSession().getValue("U_P_T").equals("true")){
 	            %>
 	        	<span class="label label-default">普通教师</span>
 	        	<%
-	            	}if(request.getSession().getValue("U_P_C")=="true"){
+	            	}if(request.getSession().getValue("U_P_C").equals("true")){
 	            %>
 				<span class="label label-primary">学院管理员</span>
 				<%
-	            	}if(request.getSession().getValue("U_P_B")=="true"){
+	            	}if(request.getSession().getValue("U_P_B").equals("true")){
 	            %>
 				<span class="label label-success">图书管理员</span>
 				<%
-	            	}if(request.getSession().getValue("U_P_F")=="true"){
+	            	}if(request.getSession().getValue("U_P_F").equals("true")){
 	            %>
 				<span class="label label-info">系统报表员</span>
 				<%
-	            	}if(request.getSession().getValue("U_P_S")=="true"){
+	            	}if(request.getSession().getValue("U_P_S").equals("true")){
 	            %>
 				<span class="label label-warning">系统管理员</span>
 				<%

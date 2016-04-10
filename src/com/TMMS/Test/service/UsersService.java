@@ -26,4 +26,19 @@ public class UsersService {
 			System.out.println("µÇÂ½Ê§°Ü");
 		}
 	}
+	
+	@Test
+	public void fixUserInformation(){
+		UsersDAO usersDAO = new UsersDAO();
+		try {
+			long username = 141122427;
+			Users user = usersDAO.findById(username);
+			user.setUName("³É¹¦");
+			user.setUPhone("1566113173");
+			user.setUEmail("email");
+			usersDAO.save(user);
+		} catch (Exception e) {
+			
+		}
+	}
 }
