@@ -39,4 +39,19 @@ public class UsersService {
 			return false;
 		}
 	}
+	public boolean fixPassword(Long username,String password_old,String password_new1){
+		UsersDAO usersDAO = new UsersDAO();
+		try {
+			Users user = usersDAO.findById(username);
+			if(password_old.equals(user.getUPwd())){
+				user.setUPwd(password_new1);
+				usersDAO.save(user);
+				return true;
+			}else{
+				return false;
+			}
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }

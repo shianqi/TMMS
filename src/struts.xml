@@ -10,7 +10,7 @@
 				/index.jsp
 			</result>
 		</action>
-		<action name="showUserInformation" class="com.TMMS.Main.action.showUserInformationAction">
+		<action name="showUserInformation" class="com.TMMS.Main.action.ShowUserInformationAction">
 			<result name="success">
 				/JSP/HTML/tab1/show_user_information.jsp
 			</result>
@@ -18,7 +18,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="fixUserInformation" class="com.TMMS.Main.action.fixUserInformationAction">
+		<action name="fixUserInformation" class="com.TMMS.Main.action.FixUserInformationAction">
 			<result name="success">
 				/JSP/HTML/tab1/fix_user_information.jsp
 			</result>
@@ -26,7 +26,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="fixUserInformationDown" class="com.TMMS.Main.action.fixUserInformationActionDown">
+		<action name="fixUserInformationDown" class="com.TMMS.Main.action.FixUserInformationActionDown">
 			<result name="success">
 				/JSP/Success.jsp
 			</result>
@@ -34,9 +34,17 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="fixUserPassword" class="com.TMMS.Main.action.fixUserPasswordAction">
+		<action name="fixUserPassword" class="com.TMMS.Main.action.FixUserPasswordAction">
 			<result name="success">
-				/JSP/HTML/tab1/fix_user_password.jsp
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="showUserLoginLog" class="com.TMMS.Main.action.ShowUserLoginLogAction">
+			<result name="success">
+				/JSP/HTML/tab1/show_user_loginLog.jsp
 			</result>
 			<result name="error">
 				/JSP/Error.jsp

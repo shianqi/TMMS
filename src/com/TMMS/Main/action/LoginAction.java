@@ -53,7 +53,6 @@ public class LoginAction extends ActionSupport{
 		
 		if(password!=null&&usersService.login(Long.parseLong(username), new MD5().encryptPassword(password))){
 			//获取session对象
-			System.out.println(user.getUPT()+"");
 			session.put("U_ID", username);
 			session.put("U_State", user.getUState());
 			session.put("U_Name", user.getUName());

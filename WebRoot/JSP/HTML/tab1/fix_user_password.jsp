@@ -15,23 +15,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>修改用户密码</title>
 </head>
 <body>
-<form style="margin:20px;" method="post" action="fixUserPassword.action">
+<form style="margin:20px;" method="post" action="http://183.175.12.155:8080/TMMS/fixUserPassword.action">
 		<div class="page-header">
 		  <h1><small>Fix my user password</small></h1>
 		</div>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">原始密码</span>
-		  <input type="password" name="password_old" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="password" name="password_old" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">新建密码</span>
-		  <input type="password" name="password_new1" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="password" name="password_new1" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">再次输入</span>
-		  <input type="password" name="password_new2" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="password" name="password_new2" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="btn-group btn-group-justified" role="group" aria-label="...">

@@ -15,61 +15,30 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>查看用户信息</title>
 </head>
 <body>
-	<div style="margin:20px;">
-		<div class="panel panel-default">
-	      <div class="panel-heading">
-	        <h3 class="panel-title">用户名</h3>
-	      </div>
-	      <div class="panel-body">
-	        	${users.getUName()}(${users.getUId()})
-	      </div>
+	<form style="margin:20px;" method="post" action="fixUserInformationDown.action">
+		<div class="page-header">
+		  <h1><small>Login Log</small></h1>
 		</div>
-		<div class="panel panel-default">
-	      <div class="panel-heading">
-	        <h3 class="panel-title">身份</h3>
-	      </div>
-	      <div class="panel-body">
-	      		<%
-	            	if(request.getSession().getValue("U_P_T").equals("true")){
-	            %>
-	        	<span class="label label-default">普通教师</span>
-	        	<%
-	            	}if(request.getSession().getValue("U_P_C").equals("true")){
-	            %>
-				<span class="label label-primary">学院管理员</span>
-				<%
-	            	}if(request.getSession().getValue("U_P_B").equals("true")){
-	            %>
-				<span class="label label-success">图书管理员</span>
-				<%
-	            	}if(request.getSession().getValue("U_P_F").equals("true")){
-	            %>
-				<span class="label label-info">系统报表员</span>
-				<%
-	            	}if(request.getSession().getValue("U_P_S").equals("true")){
-	            %>
-				<span class="label label-warning">系统管理员</span>
-				<%
-	            	}
-	            %>
-	      </div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">用户姓名</span>
+		  <input type="text" name="name" class="form-control" placeholder="${users.getUName()}" aria-describedby="basic-addon1">
 		</div>
-		<div class="panel panel-default">
-	      <div class="panel-heading">
-	        <h3 class="panel-title">电话号</h3>
-	      </div>
-	      <div class="panel-body">
-	        	${users.getUPhone()}
-	      </div>
+		<br>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">手机号码</span>
+		  <input type="tel" name="phone" class="form-control" placeholder="${users.getUPhone()}" aria-describedby="basic-addon1">
 		</div>
-		<div class="panel panel-default">
-	      <div class="panel-heading">
-	        <h3 class="panel-title">邮箱</h3>
-	      </div>
-	      <div class="panel-body">
-	        	${users.getUEmail()}
-	      </div>
+		<br>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">电子邮箱</span>
+		  <input type="email" name="email" class="form-control" placeholder="${users.getUEmail()}" aria-describedby="basic-addon1">
 		</div>
-	</div>
+		<br>
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+		  <div class="btn-group" role="group">
+		  	<button type="submit" class="btn btn-default">确认修改</button>
+		  </div>
+		</div>
+	</form>
 </body>
 </html>
