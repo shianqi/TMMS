@@ -2,6 +2,8 @@ package com.TMMS.Main.action;
 
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
+
 import com.TMMS.Main.bean.Users;
 import com.TMMS.Main.service.UsersService;
 import com.TMMS.Main.util.MD5;
@@ -63,6 +65,8 @@ public class LoginAction extends ActionSupport{
 			session.put("U_P_S", user.getUPS().toString());
 			//ÃÜÂëÅÐ¶Ï×´Ì¬
 			session.put("state","1");
+			String IP = ServletActionContext.getRequest().getRemoteAddr();
+			usersService.addLoginLog(Long.parseLong(username), IP);
 			return SUCCESS;
 		}else{
 			session.put("state","0");

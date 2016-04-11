@@ -1,9 +1,13 @@
 package com.TMMS.Main.service;
 
-import java.util.Map;
+import java.util.Date;
 
+import me.hupeng.ipLocationService.IpLocationResult;
+import me.hupeng.ipLocationService.IpLocationService;
+
+import com.TMMS.Main.DAO.UlDAO;
 import com.TMMS.Main.DAO.UsersDAO;
-import com.TMMS.Main.Model.LoginModel;
+import com.TMMS.Main.bean.Ul;
 import com.TMMS.Main.bean.Users;
 
 public class UsersService {
@@ -53,5 +57,23 @@ public class UsersService {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	public void addLoginLog(Long username,String IP){
+		UsersDAO usersDAO = new UsersDAO();
+		Users user = usersDAO.findById(username);
+		IpLocationService ipLocationService=new IpLocationService();
+		System.out.println(IP);
+		IpLocationResult ipLocationResult = ipLocationService.getIpLocationResult(IP);
+		
+		Ul ul = new Ul();
+		long id= 0;
+		ul.setUlId(id);
+		ul.setUlIp(IP);
+		ul.setUlTime(new Date(System.currentTimeMillis()));
+		ul.setUsers(user);
+		ul.setUlLocation(ipLocationResult.getCountry()+" "+ipLocationResult.getProvince()+" "+ipLocationResult.getCity());
+		
+		UlDAO ulDAO = new UlDAO();
+		ulDAO.save(ul);
 	}
 }
