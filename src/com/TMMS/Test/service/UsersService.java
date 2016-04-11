@@ -1,12 +1,14 @@
 package com.TMMS.Test.service;
 
+import org.hibernate.Query;
 import org.junit.Test;
 
+import com.TMMS.Main.DAO.BaseHibernateDAO;
 import com.TMMS.Main.DAO.UsersDAO;
 import com.TMMS.Main.bean.Users;
 import com.TMMS.Main.util.MD5;
 
-public class UsersService {
+public class UsersService extends BaseHibernateDAO {
 	@Test
 	public void getPasswordSecret(){
 		String password = "121021";
@@ -40,5 +42,16 @@ public class UsersService {
 		} catch (Exception e) {
 			
 		}
+	}
+	
+	@Test
+	public void showLoginLog(){
+		
+			String queryString = "from Ul as model where model.users= ? order by model.ulTime asc";
+			Query queryObject = getSession().createQuery(queryString);
+			queryObject.setString(0, String.valueOf(141122427));
+			queryObject.setMaxResults(10);
+			System.out.println(queryObject.list().size());
+		
 	}
 }

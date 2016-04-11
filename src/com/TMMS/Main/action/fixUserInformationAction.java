@@ -23,7 +23,7 @@ public class FixUserInformationAction extends ActionSupport{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		Map<String , Object> session = ActionContext.getContext().getSession(); 
-		if(session.get("state")==null||session.get("state")=="0"){
+		if(session.get("state")==null||session.get("state").equals("0")){
 			return ERROR; 
 		}
 		

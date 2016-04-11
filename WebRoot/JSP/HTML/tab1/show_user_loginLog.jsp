@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="utf8"%>
+<%@ page language="java" import="java.util.*" import="com.TMMS.Main.bean.Ul" pageEncoding="utf8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -21,7 +21,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        <h3 class="panel-title">登陆记录</h3>
 	      </div>
 	      <div class="panel-body">
-	      	<table class="table">
+	      	<table class="table table-striped">
 		      <thead>
 		        <tr>
 		          <th>#</th>
@@ -31,60 +31,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        </tr>
 		      </thead>
 		      <tbody>
-		        <tr class="active">
-		          <th scope="row">1</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
+		      <% 
+		      	List<Ul> list = (List<Ul>)request.getAttribute("list");
+		      	
+		      	for(int i=0;i<(10<list.size()?10:list.size());i++){
+					Ul ul = (Ul)list.get(i);
+			   %>
+				<tr class="">
+		          <th scope="row"><%=i+1%></th>
+		          <td><%=ul.getUlIp()%></td>
+		          <td><%=ul.getUlLocation()%></td>
+		          <td><%=ul.getUlTime()%></td>
 		        </tr>
-		        <tr>
-		          <th scope="row">2</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="success">
-		          <th scope="row">3</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">4</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="info">
-		          <th scope="row">5</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">6</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="warning">
-		          <th scope="row">7</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr>
-		          <th scope="row">8</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
-		        <tr class="danger">
-		          <th scope="row">9</th>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		          <td>Column content</td>
-		        </tr>
+			  <%
+				}
+		      %>
 		      </tbody>
 		    </table>
 	      </div>

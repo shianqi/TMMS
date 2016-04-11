@@ -1,6 +1,7 @@
 package com.TMMS.Main.service;
 
 import java.util.Date;
+import java.util.List;
 
 import me.hupeng.ipLocationService.IpLocationResult;
 import me.hupeng.ipLocationService.IpLocationService;
@@ -75,5 +76,12 @@ public class UsersService {
 		
 		UlDAO ulDAO = new UlDAO();
 		ulDAO.save(ul);
+	}
+	
+	public java.util.List<Ul> showUserLoginLog(Long username){
+		UlDAO ulDAO = new UlDAO();
+		Ul ul = new Ul();
+		List<Ul> list = ulDAO.findLoginList10(username);
+		return list;
 	}
 }

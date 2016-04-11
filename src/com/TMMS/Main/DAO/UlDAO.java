@@ -78,6 +78,20 @@ public class UlDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
+	
+	public List findLoginList10(long username){
+		try {
+			String queryString = "from Ul as model where model.users= ? order by model.ulTime desc";
+			Query queryObject = getSession().createQuery(queryString);
+			queryObject.setString(0, String.valueOf(username));
+			queryObject.setMaxResults(10);
+			return queryObject.list();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+
+	}
 
 	public List findByProperty(String propertyName, Object value) {
 		log.debug("finding Ul instance with property: " + propertyName
