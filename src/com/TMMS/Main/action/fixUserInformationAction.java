@@ -7,7 +7,7 @@ import com.TMMS.Main.service.UsersService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class fixUserInformationAction extends ActionSupport{
+public class FixUserInformationAction extends ActionSupport{
 	private Users users;
 	
 	public Users getUsers() {
@@ -22,8 +22,7 @@ public class fixUserInformationAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Map<String , Object> session = ActionContext.getContext().getSession();
-		System.out.println(session.get("state")); 
+		Map<String , Object> session = ActionContext.getContext().getSession(); 
 		if(session.get("state")==null||session.get("state")=="0"){
 			return ERROR; 
 		}

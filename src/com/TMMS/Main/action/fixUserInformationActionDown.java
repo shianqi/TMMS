@@ -9,7 +9,7 @@ import com.TMMS.Main.service.UsersService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class fixUserInformationActionDown extends ActionSupport{
+public class FixUserInformationActionDown extends ActionSupport{
 	private String name;
 	private String phone;
 	private String email;
@@ -42,7 +42,6 @@ public class fixUserInformationActionDown extends ActionSupport{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		Map<String , Object> session = ActionContext.getContext().getSession();
-		System.out.println(session.get("state")); 
 		if(session.get("state")==null||session.get("state").equals("")){
 			return ERROR; 
 		}
@@ -50,7 +49,6 @@ public class fixUserInformationActionDown extends ActionSupport{
 		long username = Long.valueOf(String.valueOf(session.get("U_ID")));
 		UsersService usersService = new UsersService();
 		Users users = usersService.getUserDAO(username);
-		System.out.println(users.getUName()+users.getUPhone()+users.getUEmail());
 		
 		if(name==null||name.equals("")){
 			name=users.getUName();
@@ -60,10 +58,8 @@ public class fixUserInformationActionDown extends ActionSupport{
 		}
 		if(email==null||email.equals("")){
 			email=users.getUEmail();
-			System.out.println("!!!!!");
 		}
 		
-		System.out.println(name+phone+email);
 		if(usersService.fixUserInformation(username,name,phone,email )){
 			return SUCCESS;
 		}else{
