@@ -54,7 +54,7 @@ public class OrdersDAO extends BaseHibernateDAO {
 		log.debug("getting Orders instance with id: " + id);
 		try {
 			Orders instance = (Orders) getSession().get(
-					"com.TMMS.Main.DAO.Orders", id);
+					"com.TMMS.Main.bean.Orders", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -66,7 +66,7 @@ public class OrdersDAO extends BaseHibernateDAO {
 		log.debug("finding Orders instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("com.TMMS.Main.DAO.Orders")
+					.createCriteria("com.TMMS.Main.bean.Orders")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

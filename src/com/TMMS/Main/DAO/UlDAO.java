@@ -53,7 +53,7 @@ public class UlDAO extends BaseHibernateDAO {
 	public Ul findById(java.lang.Long id) {
 		log.debug("getting Ul instance with id: " + id);
 		try {
-			Ul instance = (Ul) getSession().get("com.TMMS.Main.DAO.Ul", id);
+			Ul instance = (Ul) getSession().get("com.TMMS.Main.bean.Ul", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -64,7 +64,7 @@ public class UlDAO extends BaseHibernateDAO {
 	public List findByExample(Ul instance) {
 		log.debug("finding Ul instance by example");
 		try {
-			List results = getSession().createCriteria("com.TMMS.Main.DAO.Ul")
+			List results = getSession().createCriteria("com.TMMS.Main.bean.Ul")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

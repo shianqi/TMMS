@@ -54,7 +54,7 @@ public class OoDAO extends BaseHibernateDAO {
 	public Oo findById(com.TMMS.Main.bean.OoId id) {
 		log.debug("getting Oo instance with id: " + id);
 		try {
-			Oo instance = (Oo) getSession().get("com.TMMS.Main.DAO.Oo", id);
+			Oo instance = (Oo) getSession().get("com.TMMS.Main.bean.Oo", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

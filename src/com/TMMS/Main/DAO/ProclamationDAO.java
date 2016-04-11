@@ -54,7 +54,7 @@ public class ProclamationDAO extends BaseHibernateDAO {
 		log.debug("getting Proclamation instance with id: " + id);
 		try {
 			Proclamation instance = (Proclamation) getSession().get(
-					"com.TMMS.Main.DAO.Proclamation", id);
+					"com.TMMS.Main.bean.Proclamation", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -66,7 +66,7 @@ public class ProclamationDAO extends BaseHibernateDAO {
 		log.debug("finding Proclamation instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("com.TMMS.Main.DAO.Proclamation")
+					.createCriteria("com.TMMS.Main.bean.Proclamation")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

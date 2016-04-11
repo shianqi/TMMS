@@ -55,7 +55,7 @@ public class OrdercycleDAO extends BaseHibernateDAO {
 		log.debug("getting Ordercycle instance with id: " + id);
 		try {
 			Ordercycle instance = (Ordercycle) getSession().get(
-					"com.TMMS.Main.DAO.Ordercycle", id);
+					"com.TMMS.Main.bean.Ordercycle", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);

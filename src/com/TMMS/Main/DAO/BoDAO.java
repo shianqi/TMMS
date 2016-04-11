@@ -51,7 +51,7 @@ public class BoDAO extends BaseHibernateDAO {
 	public Bo findById(com.TMMS.Main.bean.BoId id) {
 		log.debug("getting Bo instance with id: " + id);
 		try {
-			Bo instance = (Bo) getSession().get("com.TMMS.Main.DAO.Bo", id);
+			Bo instance = (Bo) getSession().get("com.TMMS.Main.bean.Bo", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -62,7 +62,7 @@ public class BoDAO extends BaseHibernateDAO {
 	public List findByExample(Bo instance) {
 		log.debug("finding Bo instance by example");
 		try {
-			List results = getSession().createCriteria("com.TMMS.Main.DAO.Bo")
+			List results = getSession().createCriteria("com.TMMS.Main.bean.Bo")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

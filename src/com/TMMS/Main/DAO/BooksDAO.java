@@ -62,7 +62,7 @@ public class BooksDAO extends BaseHibernateDAO {
 		log.debug("getting Books instance with id: " + id);
 		try {
 			Books instance = (Books) getSession().get(
-					"com.TMMS.Main.DAO.Books", id);
+					"com.TMMS.Main.bean.Books", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -74,7 +74,7 @@ public class BooksDAO extends BaseHibernateDAO {
 		log.debug("finding Books instance by example");
 		try {
 			List results = getSession()
-					.createCriteria("com.TMMS.Main.DAO.Books")
+					.createCriteria("com.TMMS.Main.bean.Books")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
