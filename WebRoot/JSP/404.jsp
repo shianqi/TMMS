@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <div class="custard">404 Not found</div>
+    <div class="custard"><h1>404 Not found</h1></div>
   </body>
   <style type="text/css">
 	.custard {
