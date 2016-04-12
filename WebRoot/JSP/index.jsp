@@ -2,6 +2,7 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+System.out.print(basePath);
 %>
 
 <!DOCTYPE html>
@@ -25,15 +26,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">个人信息<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/showUserInformation.action" data-index="1">查看基本信息</li>
-                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/fixUserInformation.action" data-index="1">修改基本信息</li>
-                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/JSP/HTML/tab1/fix_user_password.jsp" data-index="2">修改密码</li>
+                                        <li class="J_menuItem" href="${basePath}showUserInformation.action" data-index="1">查看基本信息</li>
+                                        <li class="J_menuItem" href="${basePath}fixUserInformation.action" data-index="1">修改基本信息</li>
+                                        <li class="J_menuItem" href="${basePath}JSP/HTML/tab1/fix_user_password.jsp" data-index="2">修改密码</li>
                                     </ul>
                                 </dd>
                                 <dd>
                                     <a href="#" class="dd-item">账号安全<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="http://183.175.12.155:8080/TMMS/showUserLoginLog.action" data-index="1">近期登陆记录</li>
+                                        <li class="J_menuItem" href="${basePath}showUserLoginLog.action" data-index="1">近期登陆记录</li>
                                     </ul>
                                 </dd>
                             </dl>

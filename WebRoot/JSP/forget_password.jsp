@@ -97,7 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <input type="password" name="p" placeholder="密码" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">重置密码</button>
         <br>
-        <a id="forget_password" href="http://localhost:8080/TMMS/index.jsp">返回登陆</a>
+        <a id="forget_password" href="${basePath}index.jsp">返回登陆</a>
     </form>
 </div>
 <div style="text-align:center;">

@@ -72,10 +72,16 @@ public class UsersService {
 		ul.setUlIp(IP);
 		ul.setUlTime(new Date(System.currentTimeMillis()));
 		ul.setUsers(user);
-		ul.setUlLocation(ipLocationResult.getCountry()+" "+ipLocationResult.getProvince()+" "+ipLocationResult.getCity());
+		try {
+			ul.setUlLocation(ipLocationResult.getCountry()+" "+ipLocationResult.getProvince()+" "+ipLocationResult.getCity());
+			
+			UlDAO ulDAO = new UlDAO();
+			ulDAO.save(ul);
+		} catch (Exception e) {
+			System.out.println("获取IP地址出错");
+		}
 		
-		UlDAO ulDAO = new UlDAO();
-		ulDAO.save(ul);
+		
 	}
 	
 	public java.util.List<Ul> showUserLoginLog(Long username){
