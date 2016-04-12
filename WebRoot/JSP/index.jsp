@@ -2,7 +2,6 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-System.out.print(basePath);
 %>
 
 <!DOCTYPE html>
@@ -216,7 +215,7 @@ System.out.print(basePath);
                                 <div class="ad-wel-img"><img src="JSP/image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">
                                     <div class="font-wel">欢迎您！<strong>${U_Name}</strong></div>
-                                    <div class="font-wel"><a href="javascript:;"><strong>【退出】</strong></a></div>
+                                    <div class="font-wel"><a href="${basePath}logout.action"><strong>【退出】</strong></a></div>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +243,7 @@ System.out.print(basePath);
                     </div>
                 </div>
                 <div class="ad-main-comment J_mainContent" id="ad-iframe">
-                    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="home.html" frameborder="0" data-id="index_v0.html" seamless></iframe>
+                    <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="${basePath}showHomeInformation.action" frameborder="0" data-id="index_v0.html" seamless></iframe>
                 </div>
     		</div>
     	</div>

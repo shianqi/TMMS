@@ -10,6 +10,14 @@
 				/index.jsp
 			</result>
 		</action>
+		<action name="logout" class="com.TMMS.Main.action.LogoutAction">
+			<result name="success">
+				/index.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 		<action name="showUserInformation" class="com.TMMS.Main.action.ShowUserInformationAction">
 			<result name="success">
 				/JSP/HTML/tab1/show_user_information.jsp
@@ -45,6 +53,14 @@
 		<action name="showUserLoginLog" class="com.TMMS.Main.action.ShowUserLoginLogAction">
 			<result name="success">
 				/JSP/HTML/tab1/show_user_loginLog.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="showHomeInformation" class="com.TMMS.Main.action.HomeInformationAction">
+			<result name="success">
+				/JSP/HTML/Home.jsp
 			</result>
 			<result name="error">
 				/JSP/Error.jsp
