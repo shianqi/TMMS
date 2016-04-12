@@ -23,6 +23,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    404. <br>
+    <div class="custard">404 Not found</div>
   </body>
+  <style type="text/css">
+	.custard {
+	margin-top: 120px;
+	width: 100%;
+	text-align: center;
+}
+
+.custard::after {
+  content: "\1F36E";
+	/* CSS Pseudo-elements escape some characters that's why the unicode 'U+1F36E' is converted to '\1F36E' */
+  font-size: 100px;
+	/*As @LukyVj added in the comment section, Chrome limits the emoji size in 256px, Safari and Firefox doesn't restrcit sizes*/
+	display: block;
+}
+
+/* For contrast */
+body {
+	background-color: #ffffff;
+	color: brown;
+}
+  </style>
 </html>

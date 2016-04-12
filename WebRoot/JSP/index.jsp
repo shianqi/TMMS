@@ -181,7 +181,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">关于本系统<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab7/about_system.html" data-index="1">关于本系统</li>
+                                        <li class="J_menuItem" href="${basePath}JSP/HTML/tab7/AboutSystem.jsp" data-index="1">关于本系统</li>
                                     </ul>
                                 </dd>
                             </dl>
