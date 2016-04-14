@@ -90,4 +90,24 @@ public class UsersService {
 		List<Ul> list = ulDAO.findLoginList10(username);
 		return list;
 	}
+	
+	public boolean addUser(long Uid,String UPwd,String UName,String UEmail,String UPhone,
+			boolean UPT, boolean UPC, boolean UPB, boolean UPF, boolean UPS){
+		Users users = new Users();
+		users.setUId(Uid);
+		users.setUPwd(UPwd);
+		users.setUName(UName);
+		users.setUEmail(UEmail);
+		users.setUPhone(UPhone);
+		users.setUPT(UPT);
+		users.setUPC(UPC);
+		users.setUPB(UPB);
+		users.setUPF(UPF);
+		users.setUPS(UPS);
+		users.setUState(true);
+		
+		UsersDAO usersDAO = new UsersDAO();
+		usersDAO.save(users);
+		return true;
+	}
 }

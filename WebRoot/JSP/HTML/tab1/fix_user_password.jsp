@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>修改用户密码</title>
 </head>
 <body>
-<form style="margin:20px;" method="post" action="http://183.175.12.155:8080/TMMS/fixUserPassword.action">
+<form style="margin:20px;" method="post" action="${basePath}fixUserPassword.action">
 		<div class="page-header">
 		  <h1><small>Fix my user password</small></h1>
 		</div>

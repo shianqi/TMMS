@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             </dl>
                         </li>
                         <% 
-                    		if(request.getSession().getValue("U_P_T")=="true"){
+                    		if(request.getSession().getValue("U_P_T").equals("true")){
                     	%>
                         <li>
                             <div class="li-item"><em class="scm li-ico ic2"></em>教师功能<span class="scm arrow"></span></div>
@@ -152,7 +152,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <a href="#" class="dd-item">用户管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="html/tab6/system_show_user.html" data-index="1">查看用户</li>
-                                        <li class="J_menuItem" href="html/tab6/system_add_user.html" data-index="1">添加用户</li>
+                                        <li class="J_menuItem" href="${basePath}JSP/HTML/tab6/System_user_addUser.jsp" data-index="1">添加用户</li>
                                         <li class="J_menuItem" href="html/tab6/system_fix_user.html" data-index="1">修改用户信息</li>
                                         <li class="J_menuItem" href="html/tab6/system_delete_user.html" data-index="1">删除用户</li>
                                     </ul>

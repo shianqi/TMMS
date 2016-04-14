@@ -15,33 +15,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>查看用户信息</title>
 </head>
 <body>
-	<form style="margin:20px;" method="post" action="fixUserInformationDown.action">
+	<form style="margin:20px;" method="post" action="http://183.175.12.155:8080/TMMS/SystemUserAddUser.action">
 		<div class="page-header">
 		  <h1><small>Add User</small></h1>
 		</div>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">用户编号</span>
-		  <input type="text" name="name" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="text" name="uid" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">初始密码</span>
-		  <input type="text" name="name" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="password" name="upw" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">用户姓名</span>
-		  <input type="text" name="name" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="text" name="uname" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">手机号码</span>
-		  <input type="tel" name="phone" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="tel" name="uphone" class="form-control" placeholder="" aria-describedby="basic-addon1">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">电子邮箱</span>
-		  <input type="email" name="email" class="form-control" placeholder="" aria-describedby="basic-addon1">
+		  <input type="email" name="uemail" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="panel panel-default">
@@ -51,29 +51,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <div class="panel-body">
 	      	<div class="checkbox">
 				<label>
-					<input type="checkbox" value="">
+					<input type="checkbox" name="upt" value="true" aria-describedby="basic-addon1">
 				    	教师 &nbsp; &nbsp;&nbsp;
 				</label>
 				<label>
-					<input type="checkbox" value="">
+					<input type="checkbox" name="upc" value="true" aria-describedby="basic-addon1">
 				    	学院管理员 &nbsp; &nbsp; &nbsp;
 				</label>
 				<label>
-					<input type="checkbox" value="">
+					<input type="checkbox" name="upb" value="true" aria-describedby="basic-addon1">
 				    	图书管理员 &nbsp; &nbsp; &nbsp;
 				</label>
 				<label>
-					<input type="checkbox" value="">
+					<input type="checkbox" name="upf" value="true" aria-describedby="basic-addon1">
 				    	财政报表员 &nbsp; &nbsp; &nbsp;
 				</label>
 				<label>
-					<input type="checkbox" value="">
+					<input type="checkbox" name="ups" value="true" aria-describedby="basic-addon1">
 				    	系统管理员 
 				</label>
 			</div>
 		  </div>
 	    </div>
-		<br>
 
 		<div class="btn-group btn-group-justified" role="group" aria-label="...">
 		  <div class="btn-group" role="group">

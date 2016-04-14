@@ -66,5 +66,13 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="SystemUserAddUser" class="com.TMMS.Main.action.SystemUserAddUserAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 </struts>
