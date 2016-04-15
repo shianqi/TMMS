@@ -24,7 +24,7 @@ public class FixUserInformationAction extends ActionSupport{
 		// TODO Auto-generated method stub
 		Map<String , Object> session = ActionContext.getContext().getSession(); 
 		if(session.get("state")==null||session.get("state").equals("0")){
-			return ERROR; 
+			return ERROR;
 		}
 		
 		long username = Long.valueOf(String.valueOf(session.get("U_ID")));
