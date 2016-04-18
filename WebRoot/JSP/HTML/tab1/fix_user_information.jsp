@@ -17,7 +17,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<form style="margin:20px;" method="post" action="fixUserInformationDown.action">
 		<div class="page-header">
-		  <h1><small>Fix my user information</small></h1>
+		  <h1><small>Fix my information</small></h1>
 		</div>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">用户姓名</span>

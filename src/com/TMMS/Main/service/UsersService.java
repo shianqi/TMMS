@@ -110,4 +110,13 @@ public class UsersService {
 		usersDAO.save(users);
 		return true;
 	}
+	
+	public boolean admin_FixUserInformation(long Uid,String UPwd,String UName,String UEmail,String UPhone,
+			boolean UPT, boolean UPC, boolean UPB, boolean UPF, boolean UPS,boolean state){
+
+		
+		UsersDAO usersDAO = new UsersDAO();
+		Users users= usersDAO.findById(Uid);
+		return true;
+	}
 }
