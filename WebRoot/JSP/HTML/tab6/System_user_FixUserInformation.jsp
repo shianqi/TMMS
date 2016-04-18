@@ -52,11 +52,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      	<table class="table table-striped">
 		      <thead>
 		        <tr>
-		          <th>编号</th>
-		          <th>登陆IP</th>
-		          <th>地点</th>
-		          <th>地点</th>
-		          <th>时间</th>
+		          <th>账户名</th>
+		          <th>姓名</th>
+		          <th>电子邮箱</th>
+		          <th>最后登陆时间</th>
+		          <th>修改</th>
 		        </tr>
 		      </thead>
 		      <tbody>
