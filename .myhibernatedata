@@ -1,5 +1,5 @@
 #MyEclipse Hibernate Properties
-#Thu Apr 07 20:55:02 CST 2016
+#Thu Apr 21 21:24:45 CST 2016
 genBasicCompId=false
 sessionFactoryName=com.TMMS.Main.DAO.HibernateSessionFactory
 profile=
@@ -18,4 +18,4 @@ genAnnotations=false
 reSettingsFile=
 configFile=/TMMS/src/hibernate.cfg.xml
 createConfigFile=true
-baseDaoClass=BaseHibernateDAO
+baseDaoClass=com.TMMS.Main.DAO.BaseHibernateDAO

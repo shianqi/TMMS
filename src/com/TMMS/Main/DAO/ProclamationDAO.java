@@ -1,10 +1,10 @@
 package com.TMMS.Main.DAO;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,9 +27,11 @@ public class ProclamationDAO extends BaseHibernateDAO {
 			.getLogger(ProclamationDAO.class);
 	// property constants
 	public static final String _PTEXT = "PText";
+	public static final String _PTITLE = "PTitle";
 
 	public void save(Proclamation transientInstance) {
 		log.debug("saving Proclamation instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().save(transientInstance);
 			log.debug("save successful");
@@ -37,6 +39,8 @@ public class ProclamationDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public void delete(Proclamation persistentInstance) {
@@ -94,6 +98,10 @@ public class ProclamationDAO extends BaseHibernateDAO {
 
 	public List findByPText(Object PText) {
 		return findByProperty(_PTEXT, PText);
+	}
+
+	public List findByPTitle(Object PTitle) {
+		return findByProperty(_PTITLE, PTitle);
 	}
 
 	public List findAll() {

@@ -16,7 +16,7 @@ public class Proclamation extends AbstractProclamation implements
 
 	/** full constructor */
 	public Proclamation(Long PId, Users users, String PText, Date PTime) {
-		super(PId, users, PText, PTime);
+		super(PId, users, PText, PTime, PText);
 	}
 
 }

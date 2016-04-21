@@ -19,5 +19,8 @@
         <property name="PTime" type="java.util.Date">
             <column name="P_TIME" length="7" not-null="true" />
         </property>
+        <property name="PTitle" type="java.lang.String">
+            <column name="P_TITLE" length="50" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

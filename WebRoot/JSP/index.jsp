@@ -142,7 +142,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">公告管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab6/public_announcement.html" data-index="1">发布公告</li>
+                                        <li class="J_menuItem" href="${basePath}JSP/HTML/tab6/System_proclamation_add.jsp" data-index="1">发布公告</li>
                                         <li class="J_menuItem" href="html/tab6/system_fix_announcement.html" data-index="1">修改公告</li>
                                         <li class="J_menuItem" href="html/tab6/system_delete_announcement.html" data-index="1">删除公告</li>
                                         <li class="J_menuItem" href="html/tab6/system_show_history_announcement.html" data-index="1">查看历史公告</li>
