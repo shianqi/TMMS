@@ -1,32 +1,47 @@
 package com.TMMS.Main.action.system;
 
+import java.util.Map;
+
+import com.TMMS.Main.service.SystemService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+/*
+ * 系统管理员
+ */
 public class SystemProclamationAddAction extends ActionSupport{
-	private String ProclamationTitle;
-	private String ProclamationText;
+	private String proclamationTitle;
+	private String proclamationText;
 
 	public String getProclamationTitle() {
-		return ProclamationTitle;
+		return proclamationTitle;
 	}
 
 	public void setProclamationTitle(String proclamationTitle) {
-		ProclamationTitle = proclamationTitle;
+		this.proclamationTitle = proclamationTitle;
 	}
 
 	public String getProclamationText() {
-		return ProclamationText;
+		return proclamationText;
 	}
 
 	public void setProclamationText(String proclamationText) {
-		ProclamationText = proclamationText;
+		this.proclamationText = proclamationText;
 	}
 
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		
-		return SUCCESS;
+		Map<String , Object> session = ActionContext.getContext().getSession(); 
+		if(session.get("state")==null||session.get("state").equals("0")){
+			return ERROR;
+		}
+		long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+		SystemService service = new SystemService();
+		if(service.systemProclamationAdd(username,proclamationTitle,proclamationText)){
+			return SUCCESS;
+		}
+		return ERROR;
 	}
 	
 }

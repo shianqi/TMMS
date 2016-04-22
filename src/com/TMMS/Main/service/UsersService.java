@@ -63,7 +63,6 @@ public class UsersService {
 		UsersDAO usersDAO = new UsersDAO();
 		Users user = usersDAO.findById(username);
 		IpLocationService ipLocationService=new IpLocationService();
-		System.out.println(IP);
 		IpLocationResult ipLocationResult = ipLocationService.getIpLocationResult(IP);
 		
 		Ul ul = new Ul();
