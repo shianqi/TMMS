@@ -18,7 +18,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="showUserInformation" class="com.TMMS.Main.action.ShowUserInformationAction">
+		<action name="showUserInformation" class="com.TMMS.Main.action.user.ShowUserInformationAction">
 			<result name="success">
 				/JSP/HTML/tab1/show_user_information.jsp
 			</result>
@@ -26,7 +26,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="fixUserInformation" class="com.TMMS.Main.action.FixUserInformationAction">
+		<action name="fixUserInformation" class="com.TMMS.Main.action.user.FixUserInformationAction">
 			<result name="success">
 				/JSP/HTML/tab1/fix_user_information.jsp
 			</result>
@@ -34,7 +34,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="fixUserInformationDown" class="com.TMMS.Main.action.FixUserInformationActionDown">
+		<action name="fixUserInformationDown" class="com.TMMS.Main.action.user.FixUserInformationActionDown">
 			<result name="success">
 				/JSP/Success.jsp
 			</result>
@@ -42,7 +42,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="fixUserPassword" class="com.TMMS.Main.action.FixUserPasswordAction">
+		<action name="fixUserPassword" class="com.TMMS.Main.action.user.FixUserPasswordAction">
 			<result name="success">
 				/JSP/Success.jsp
 			</result>
@@ -50,7 +50,7 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="showUserLoginLog" class="com.TMMS.Main.action.ShowUserLoginLogAction">
+		<action name="showUserLoginLog" class="com.TMMS.Main.action.user.ShowUserLoginLogAction">
 			<result name="success">
 				/JSP/HTML/tab1/show_user_loginLog.jsp
 			</result>
@@ -66,7 +66,17 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		<action name="SystemUserAddUser" class="com.TMMS.Main.action.SystemUserAddUserAction">
+	</package>
+	<package name="tab6" namespace="/" extends="struts-default, json-default">
+		<action name="SystemUserAddUser" class="com.TMMS.Main.action.system.SystemUserAddUserAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="SystemProclamationAdd" class="com.TMMS.Main.action.system.SystemProclamationAddAction">
 			<result name="success">
 				/JSP/Success.jsp
 			</result>

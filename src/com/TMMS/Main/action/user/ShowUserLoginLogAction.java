@@ -1,4 +1,4 @@
-package com.TMMS.Main.action;
+package com.TMMS.Main.action.user;
 
 import java.util.List;
 import java.util.Map;

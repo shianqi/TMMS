@@ -16,8 +16,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div style="margin:20px;">
-		<form method="post" action="http://183.175.12.155:8080/TMMS/SystemUserAddUser.action">
-			
+		<form method="post" action="http://183.175.12.155:8080/TMMS/SystemProclamationAdd.action">
+			<div class="input-group">
+		  		<span class="input-group-addon" id="basic-addon1">标题</span>
+		  		<input id="title" type="text" name="uid" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
+			</div>
+			<br>
+			<div class="input-group">
+		  		<span class="input-group-addon" id="basic-addon1">正文</span>
+		  		<textarea class="form-control" rows="10" placeholder="" aria-describedby="basic-addon1" required="required"></textarea>
+			</div>
+			<br>
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			  <div class="btn-group" role="group">
+			  	<button type="submit" class="btn btn-default">发布</button>
+			  </div>
+			</div>
 		</form>
 	</div>
 </body>
