@@ -16,7 +16,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 	<div style="margin:20px;">
-		<form method="post" action="http://183.175.12.155:8080/TMMS/SystemProclamationAdd.action">
+		<form method="post" action="<%=basePath%>SystemProclamationAdd.action">
 			<div class="input-group">
 		  		<span class="input-group-addon" id="basic-addon1">标题</span>
 		  		<input id="title" type="text" name="proclamationTitle" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">

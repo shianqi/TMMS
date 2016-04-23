@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>查看用户信息</title>
 </head>
 <body>
-	<form style="margin:20px;" method="post" action="fixUserInformationDown.action">
+	<form style="margin:20px;" method="post" action="<%=basePath%>fixUserInformationDown.action">
 		<div class="page-header">
 		  <h1><small>Fix my information</small></h1>
 		</div>

@@ -46,7 +46,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          <td>
 		          	<a href="${basePath}System_proclamation_showDetail.action?proclamationId=<%=proclamation.getPId()%>">查看</a>&nbsp;
 		          	<a href="${basePath}System_proclamation_fixDetail.action?proclamationId=<%=proclamation.getPId()%>">修改</a>&nbsp;
-		          	<a href="${basePath}logout.action">删除</a>
+		          	<script>
+						function del(){
+							var like = window.confirm("确定删除吗？");
+							if(like){
+								window.location.href="<%=basePath%>System_proclamation_Del.action?proclamationId=<%=proclamation.getPId()%>";
+							}
+						}
+					</script>
+		          	<a href="javascript:del()">删除</a>
 		          </td>
 		        </tr>
 			  <%
@@ -58,4 +66,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 	</div>
 </body>
+
 </html>

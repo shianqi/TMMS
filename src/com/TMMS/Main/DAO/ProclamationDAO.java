@@ -45,6 +45,7 @@ public class ProclamationDAO extends BaseHibernateDAO {
 
 	public void delete(Proclamation persistentInstance) {
 		log.debug("deleting Proclamation instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -52,6 +53,8 @@ public class ProclamationDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public Proclamation findById(java.lang.Long id) {

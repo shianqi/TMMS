@@ -2,6 +2,7 @@ package com.TMMS.Main.service;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import me.hupeng.ipLocationService.IpLocationResult;
 import me.hupeng.ipLocationService.IpLocationService;
@@ -10,8 +11,23 @@ import com.TMMS.Main.DAO.UlDAO;
 import com.TMMS.Main.DAO.UsersDAO;
 import com.TMMS.Main.bean.Ul;
 import com.TMMS.Main.bean.Users;
+import com.opensymphony.xwork2.ActionContext;
 
 public class UsersService {
+	public static boolean haveSystemPurview(){
+		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
+		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
+			return false;
+		}
+		if(sessionMap.get("U_P_S").equals("true")){
+			SystemService service = new SystemService();
+			if(service.systemProclamationShow()){
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public boolean login(long username , String password){
 		UsersDAO usersDAO = new UsersDAO();
 		try {

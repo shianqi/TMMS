@@ -34,19 +34,14 @@ public class SystemProclamationAddAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Map<String , Object> session = ActionContext.getContext().getSession(); 
-		if(session.get("state")==null||session.get("state").equals("0")){
-			return ERROR;
-		}
-		
-		if(session.get("U_P_S").equals("true")){
-			long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+		if(UsersService.haveSystemPurview()){
+			Map<String, Object> sessionMap = ActionContext.getContext().getSession();
+			long username = Long.valueOf(String.valueOf(sessionMap.get("U_ID")));
 			SystemService service = new SystemService();
 			if(service.systemProclamationAdd(username,proclamationTitle,proclamationText)){
 				return SUCCESS;
 			}
 		}
-		
 		
 		return ERROR;
 	}

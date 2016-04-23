@@ -117,5 +117,13 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="System_proclamation_Del" class="com.TMMS.Main.action.system.SystemProclamationDelAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 </struts>

@@ -15,7 +15,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>system—修改用户信息</title>
 </head>
 <body>
-	<form style="margin:20px;" method="post" action="http://183.175.12.155:8080/TMMS/SystemUserAddUser.action">
+	<form style="margin:20px;" method="post" action="<%=basePath%>SystemUserAddUser.action">
 		<div class="page-header">
 		  <h1><small>Add User</small></h1>
 		</div>

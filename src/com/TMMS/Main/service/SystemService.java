@@ -62,4 +62,16 @@ public class SystemService {
 		}
 		return true;
 	}
+	
+	public boolean systemProclamationDel(Long proclamationId){
+		try {
+			ProclamationDAO proclamationDAO = new ProclamationDAO();
+			Proclamation proclamation = proclamationDAO.findById(proclamationId);
+			proclamationDAO.delete(proclamation);
+		} catch (Exception e) {
+			System.out.println("Error:SystemService.systemProclamationDel");
+			return false;
+		}
+		return true;
+	}
 }
