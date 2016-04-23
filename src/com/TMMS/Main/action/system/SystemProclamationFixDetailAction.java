@@ -7,12 +7,23 @@ import oracle.net.aso.s;
 
 import com.TMMS.Main.bean.Proclamation;
 import com.TMMS.Main.service.SystemService;
+import com.TMMS.Main.service.UsersService;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class SystemProclamationFixDetailAction extends ActionSupport{
 	private Long proclamationId;
 	private Proclamation proclamation;
+	private String errorReason;
+	
+
+	public String getErrorReason() {
+		return errorReason;
+	}
+
+	public void setErrorReason(String errorReason) {
+		this.errorReason = errorReason;
+	}
 
 	public Long getProclamationId() {
 		return proclamationId;
@@ -33,17 +44,12 @@ public class SystemProclamationFixDetailAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		Map<String, Object> sessionMap = ActionContext.getContext().getSession();
-		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
-			return ERROR;
-		}
-		if(sessionMap.get("U_P_S").equals("true")){
+		if(UsersService.haveSystemPurview()){
 			SystemService service = new SystemService();
-			System.out.println(proclamationId);
 			this.proclamation = service.systemProclamationShowDetail(proclamationId);
-			
 			return SUCCESS;
 		}
+		errorReason = "权限不足或身份过期";
 		return ERROR;
 	}
 	
