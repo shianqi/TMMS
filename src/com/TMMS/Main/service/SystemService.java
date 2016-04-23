@@ -42,4 +42,24 @@ public class SystemService {
 			return false;
 		}
 	}
+	
+	public Proclamation systemProclamationShowDetail(Long proclamationId){
+		ProclamationDAO pDao = new ProclamationDAO();
+		Proclamation proclamation = pDao.findById(proclamationId);
+		return proclamation;
+	}
+	
+	public boolean systemProclamationFixDetail(Long proclamationId,String proclamationTitle,String proclamationText){
+		try {
+			ProclamationDAO proclamationDAO = new ProclamationDAO();
+			Proclamation proclamation = proclamationDAO.findById(proclamationId);
+			proclamation.setPTitle(proclamationTitle);
+			proclamation.setPText(proclamationText);
+			proclamation.setPTime(new Date(System.currentTimeMillis()));
+			proclamationDAO.save(proclamation);
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+	}
 }

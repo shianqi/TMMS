@@ -93,5 +93,29 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="System_proclamation_showDetail" class="com.TMMS.Main.action.system.SystemProclamationShowDetailAction">
+			<result name="success">
+				/JSP/HTML/tab6/System_proclamation_showDetail.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="System_proclamation_fixDetail" class="com.TMMS.Main.action.system.SystemProclamationFixDetailAction">
+			<result name="success">
+				/JSP/HTML/tab6/System_proclamation_fixDetail.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="System_proclamation_fixDetailDown" class="com.TMMS.Main.action.system.SystemProclamationFixDetailActionDown">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 </struts>

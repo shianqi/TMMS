@@ -43,7 +43,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          <td><%=proclamation.getPTitle()%></td>
 		          <td><%=proclamation.getUsers().getUName()%></td>
 		          <td><%=proclamation.getPTime()%></td>
-		          <td>操作</td>
+		          <td>
+		          	<a href="${basePath}System_proclamation_showDetail.action?proclamationId=<%=proclamation.getPId()%>">查看</a>&nbsp;
+		          	<a href="${basePath}System_proclamation_fixDetail.action?proclamationId=<%=proclamation.getPId()%>">修改</a>&nbsp;
+		          	<a href="${basePath}logout.action">删除</a>
+		          </td>
 		        </tr>
 			  <%
 				}
