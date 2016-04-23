@@ -104,6 +104,17 @@ public class ProclamationDAO extends BaseHibernateDAO {
 		return findByProperty(_PTITLE, PTitle);
 	}
 
+	public List findAllProclamation(){
+		try {
+			String queryString = "from Proclamation as model order by model.PTime desc";
+			Query queryObject = getSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (Exception e) {
+			// TODO: handle exception
+			return null;
+		}
+	}
+	
 	public List findAll() {
 		log.debug("finding all Proclamation instances");
 		try {

@@ -104,11 +104,11 @@ public class SystemUserAddUserAction extends ActionSupport{
 		// TODO Auto-generated method stub
 		Map<String, Object> sessionMap = ActionContext.getContext().getSession();
 		//先判断登陆状态
-		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
+		if(sessionMap.get("state")==null&&sessionMap.get("state").equals("")){
 			return ERROR;
 		}
 		
-		//再判断是否有教师权限
+		//再判断是否有管理员权限
 		if(sessionMap.get("U_P_S").equals("true")){
 			UsersService usersService = new UsersService();
 			Long username = Long.parseLong(uid);

@@ -1,6 +1,9 @@
 package com.TMMS.Main.service;
 
 import java.util.Date;
+import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.TMMS.Main.DAO.ProclamationDAO;
 import com.TMMS.Main.DAO.UsersDAO;
@@ -27,5 +30,16 @@ public class SystemService {
 			return false;
 		}
 		return true;
+	}
+	
+	public boolean systemProclamationShow(){
+		try {
+			ProclamationDAO pDao = new ProclamationDAO();
+			List<Proclamation> list = pDao.findAllProclamation();
+			ServletActionContext.getRequest().setAttribute("proclamationList", list);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 }

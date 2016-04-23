@@ -90,7 +90,6 @@ public class UlDAO extends BaseHibernateDAO {
 			// TODO: handle exception
 			return null;
 		}
-
 	}
 
 	public List findByProperty(String propertyName, Object value) {

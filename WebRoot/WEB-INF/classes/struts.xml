@@ -67,6 +67,7 @@
 			</result>
 		</action>
 	</package>
+	
 	<package name="tab6" namespace="/" extends="struts-default, json-default">
 		<action name="SystemUserAddUser" class="com.TMMS.Main.action.system.SystemUserAddUserAction">
 			<result name="success">
@@ -79,6 +80,14 @@
 		<action name="SystemProclamationAdd" class="com.TMMS.Main.action.system.SystemProclamationAddAction">
 			<result name="success">
 				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="System_proclamation_management" class="com.TMMS.Main.action.system.SystemProclamationManagementAction">
+			<result name="success">
+				/JSP/HTML/tab6/System_proclamation_management.jsp
 			</result>
 			<result name="error">
 				/JSP/Error.jsp

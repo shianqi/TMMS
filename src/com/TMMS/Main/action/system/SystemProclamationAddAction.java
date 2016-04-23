@@ -3,6 +3,8 @@ package com.TMMS.Main.action.system;
 import java.util.Map;
 
 import com.TMMS.Main.service.SystemService;
+import com.TMMS.Main.service.UsersService;
+import com.TMMS.Main.util.MD5;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -36,11 +38,16 @@ public class SystemProclamationAddAction extends ActionSupport{
 		if(session.get("state")==null||session.get("state").equals("0")){
 			return ERROR;
 		}
-		long username = Long.valueOf(String.valueOf(session.get("U_ID")));
-		SystemService service = new SystemService();
-		if(service.systemProclamationAdd(username,proclamationTitle,proclamationText)){
-			return SUCCESS;
+		
+		if(session.get("U_P_S").equals("true")){
+			long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+			SystemService service = new SystemService();
+			if(service.systemProclamationAdd(username,proclamationTitle,proclamationText)){
+				return SUCCESS;
+			}
 		}
+		
+		
 		return ERROR;
 	}
 	
