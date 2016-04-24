@@ -68,10 +68,28 @@
 		</action>
 	</package>
 	
+	
+	<!-- 系统管理员 -->
 	<package name="tab6" namespace="/" extends="struts-default, json-default">
-		<action name="SystemUserAddUser" class="com.TMMS.Main.action.system.SystemUserAddUserAction">
+		<action name="System_User_AddUser" class="com.TMMS.Main.action.system.SystemUserAddUserAction">
 			<result name="success">
 				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="System_User_SearchUser" class="com.TMMS.Main.action.system.SystemUserSearchUserAction">
+			<result name="success">
+				/JSP/HTML/tab6/System_user_searchUser.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="System_User_fixUserInformaion" class="com.TMMS.Main.action.system.SystemUserFixUserInformationAction">
+			<result name="success">
+				/JSP/HTML/tab6/System_user_fixUserInformation.jsp
 			</result>
 			<result name="error">
 				/JSP/Error.jsp

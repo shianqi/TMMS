@@ -1,3 +1,4 @@
+<%@page import="com.TMMS.Main.bean.Users"%>
 <%@ page language="java" import="java.util.*" pageEncoding="utf8"%>
 <%
 String path = request.getContextPath();
@@ -15,66 +16,71 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <title>system—修改用户信息</title>
 </head>
 <body>
-	<div style="margin:20px;">
-		<div class="row">
-		  <div class="col-lg-4">
-		    <div class="input-group">
-		      <span class="input-group-addon" id="basic-addon1">用户编号</span>
-		      <input type="text" class="form-control" aria-label="...">
-		    </div><!-- /input-group -->
-		  </div><!-- /.col-lg-4 -->
-		  <div class="col-lg-4">
-		    <div class="input-group">
-		      <span class="input-group-addon" id="basic-addon1">真实姓名</span>
-		      <input type="text" class="form-control" aria-label="...">
-		    </div><!-- /input-group -->
-		  </div><!-- /.col-lg-4 -->
-		  <div class="col-lg-4">
-		    <div class="input-group">
-		      <span class="input-group-addon" id="basic-addon1">关键词</span>
-		      <input type="text" class="form-control" placeholder="任意关键词" aria-label="...">
-		    </div><!-- /input-group -->
-		  </div><!-- /.col-lg-4 -->
-		</div><!-- /.row -->
+	<form style="margin:20px;" method="post" action="<%=basePath%>System_User_fixUserInformaionDown.action">
+		<div class="page-header">
+		  <h1><small>Fix User Information</small></h1>
+		</div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">用户编号</span>
+		  <input type="text" name="uid" class="form-control" placeholder="${user.getUId()}" aria-describedby="basic-addon1" required="required">
+		</div>
 		<br>
-		<div class="btn-group btn-group-justified" role="group" aria-label="...">
-		  <div class="btn-group" role="group">
-		  	<button type="submit" class="btn btn-default">查找</button>
-		  </div>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">初始密码</span>
+		  <input type="password" name="upw" class="form-control" placeholder="******" aria-describedby="basic-addon1" required="required">
+		</div>
+		<br>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">用户姓名</span>
+		  <input type="text" name="uname" class="form-control" placeholder="${user.getUName()}" aria-describedby="basic-addon1" required="required">
+		</div>
+		<br>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">手机号码</span>
+		  <input type="tel" name="uphone" class="form-control" placeholder="${user.getUPhone()}" aria-describedby="basic-addon1">
+		</div>
+		<br>
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">电子邮箱</span>
+		  <input type="email" name="uemail" class="form-control" placeholder="${user.getUEmail()}" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="panel panel-default">
 	      <div class="panel-heading">
-	        <h3 class="panel-title">登陆记录</h3>
+	        <h3 class="panel-title">用户类别</h3>
 	      </div>
+	      <% Users user = (Users)request.getAttribute("System_user"); %>
+	      <div class="panel-body">
+	      	<div class="checkbox">
+				<label>
+					<input type="checkbox" name="upt" <% if(user.getUPT()){ %>checked<%} %> value="true" aria-describedby="basic-addon1">
+				    	教师 &nbsp; &nbsp;&nbsp;
+				</label>
+				<label>
+					<input type="checkbox" name="upc" <% if(user.getUPC()){ %>checked<%} %> value="true" aria-describedby="basic-addon1">
+				    	学院管理员 &nbsp; &nbsp; &nbsp;
+				</label>
+				<label>
+					<input type="checkbox" name="upb" <% if(user.getUPB()){ %>checked<%} %> value="true" aria-describedby="basic-addon1">
+				    	图书管理员 &nbsp; &nbsp; &nbsp;
+				</label>
+				<label>
+					<input type="checkbox" name="upf" <% if(user.getUPF()){ %>checked<%} %> value="true" aria-describedby="basic-addon1">
+				    	财政报表员 &nbsp; &nbsp; &nbsp;
+				</label>
+				<label>
+					<input type="checkbox" name="ups" <% if(user.getUPS()){ %>checked<%} %> value="true" aria-describedby="basic-addon1">
+				    	系统管理员 
+				</label>
+			</div>
+		  </div>
+	    </div>
+
+		<div class="btn-group btn-group-justified" role="group" aria-label="...">
+		  <div class="btn-group" role="group">
+		  	<button type="submit" class="btn btn-default">确认修改</button>
+		  </div>
 		</div>
-		<div class="panel-body">
-	      	<table class="table table-striped">
-		      <thead>
-		        <tr>
-		          <th>账户名</th>
-		          <th>姓名</th>
-		          <th>电子邮箱</th>
-		          <th>最后登陆时间</th>
-		          <th>修改</th>
-		        </tr>
-		      </thead>
-		      <tbody>
-		      <% 
-		      	
-			   %>
-				<tr class="">
-		          <th scope="row"><%%></th>
-		          <td><%%></td>
-		          <td><%%></td>
-		          <td><%%></td>
-		        </tr>
-			  <%
-				
-		      %>
-		      </tbody>
-		    </table>
-	      </div>
-	</div>
+	</form>
 </body>
 </html>

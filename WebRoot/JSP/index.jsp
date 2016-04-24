@@ -151,8 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="html/tab6/system_show_user.html" data-index="1">用户统计</li>
                                         <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab6/System_user_addUser.jsp" data-index="1">添加用户</li>
-                                        <li class="J_menuItem" href="html/tab6/system_fix_user.html" data-index="1">查找/修改用户信息</li>
-                                        <li class="J_menuItem" href="html/tab6/system_delete_user.html" data-index="1">删除用户</li>
+                                        <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab6/System_user_searchUser.jsp" data-index="1">查找/修改用户信息</li>
                                     </ul>
                                 </dd>
                                 <dd>

@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.struts2.ServletActionContext;
+
 import me.hupeng.ipLocationService.IpLocationResult;
 import me.hupeng.ipLocationService.IpLocationService;
 
@@ -133,5 +135,12 @@ public class UsersService {
 		UsersDAO usersDAO = new UsersDAO();
 		Users users= usersDAO.findById(Uid);
 		return true;
+	}
+
+	public void findByInformation(String userInformation) {
+		// TODO Auto-generated method stub
+		UsersDAO usersDAO = new UsersDAO();
+		List<Users> list = usersDAO.findByKeyword(userInformation);
+		ServletActionContext.getRequest().setAttribute("keywordList", list);
 	}
 }
