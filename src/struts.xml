@@ -153,8 +153,8 @@
 			</result>
 		</action>
 		<action name="System_proclamation_Del" class="com.TMMS.Main.action.system.SystemProclamationDelAction">
-			<result name="success">
-				/JSP/Success.jsp
+			<result name="success" type="chain">
+				System_proclamation_management
 			</result>
 			<result name="error">
 				/JSP/Error.jsp

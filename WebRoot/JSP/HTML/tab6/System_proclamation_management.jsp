@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          	<a href="${basePath}System_proclamation_fixDetail.action?proclamationId=<%=proclamation.getPId()%>">修改</a>&nbsp;
 		          	<script>
 						function del(value){
-							var like = window.confirm("确定删除吗？");
+							var like = window.confirm("警告！此操作无法恢复。确定删除吗？");
 							if(like){
 								window.location.href="<%=basePath%>System_proclamation_Del.action?proclamationId="+value;
 							}

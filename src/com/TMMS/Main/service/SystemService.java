@@ -51,7 +51,6 @@ public class SystemService {
 	
 	public boolean systemProclamationFixDetail(Long proclamationId,String proclamationTitle,String proclamationText){
 		try {
-			System.out.println("1");
 			ProclamationDAO proclamationDAO = new ProclamationDAO();
 			Proclamation proclamation = proclamationDAO.findById(proclamationId);
 			proclamation.setPTitle(proclamationTitle);

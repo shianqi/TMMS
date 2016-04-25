@@ -96,7 +96,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          	<a href="${basePath}System_User_fixUserInformaion.action?UId=<%=user.getUId()%>">修改</a>
 		          	<script>
 						function del(value){
-							var like = window.confirm("确定删除吗？");
+							var like = window.confirm("警告！此操作会删除该账号的所有记录，并且不可恢复。确定删除吗？");
 							if(like){
 								window.location.href="<%=basePath%>System_User_delUser.action?userId="+value;
 							}
