@@ -53,6 +53,7 @@ public class UsersDAO extends BaseHibernateDAO {
 
 	public void delete(Users persistentInstance) {
 		log.debug("deleting Users instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -60,6 +61,8 @@ public class UsersDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public Users findById(java.lang.Long id) {

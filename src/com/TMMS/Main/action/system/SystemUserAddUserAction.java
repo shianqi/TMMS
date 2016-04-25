@@ -18,7 +18,16 @@ public class SystemUserAddUserAction extends ActionSupport{
 	private boolean upb;
 	private boolean upf;
 	private boolean ups;
+	private String errorReason;
 	
+	public String getErrorReason() {
+		return errorReason;
+	}
+
+	public void setErrorReason(String errorReason) {
+		this.errorReason = errorReason;
+	}
+
 	public String getUid() {
 		return uid;
 	}
@@ -110,6 +119,7 @@ public class SystemUserAddUserAction extends ActionSupport{
 				return SUCCESS;
 			}
 		}
+		errorReason = "用户已存在";
 		return ERROR;
 	}
 	

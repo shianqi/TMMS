@@ -141,22 +141,39 @@ public class UsersService {
 	
 	public boolean addUser(long Uid,String UPwd,String UName,String UEmail,String UPhone,
 			boolean UPT, boolean UPC, boolean UPB, boolean UPF, boolean UPS){
-		Users users = new Users();
-		users.setUId(Uid);
-		users.setUPwd(UPwd);
-		users.setUName(UName);
-		users.setUEmail(UEmail);
-		users.setUPhone(UPhone);
-		users.setUPT(UPT);
-		users.setUPC(UPC);
-		users.setUPB(UPB);
-		users.setUPF(UPF);
-		users.setUPS(UPS);
-		users.setUState(true);
+		try {
+			Users users = new Users();
+			users.setUId(Uid);
+			users.setUPwd(UPwd);
+			users.setUName(UName);
+			users.setUEmail(UEmail);
+			users.setUPhone(UPhone);
+			users.setUPT(UPT);
+			users.setUPC(UPC);
+			users.setUPB(UPB);
+			users.setUPF(UPF);
+			users.setUPS(UPS);
+			users.setUState(true);
+			
+			UsersDAO usersDAO = new UsersDAO();
+			usersDAO.save(users);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 		
-		UsersDAO usersDAO = new UsersDAO();
-		usersDAO.save(users);
-		return true;
+	}
+	
+	public boolean delUser(long Uid){
+		try {
+			UsersDAO usersDAO = new UsersDAO();
+			Users users = usersDAO.findById(Uid);
+			users.setUState(false);
+			usersDAO.save(users);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	public boolean admin_FixUserInformation(long Uid,String UPwd,String UName,String UEmail,String UPhone,

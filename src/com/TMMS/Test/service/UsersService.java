@@ -54,4 +54,8 @@ public class UsersService extends BaseHibernateDAO {
 			System.out.println(queryObject.list().size());
 		
 	}
+	@Test
+	public void delUser(){
+		
+	}
 }

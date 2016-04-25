@@ -94,7 +94,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          </td>
 		          <td>
 		          	<a href="${basePath}System_User_fixUserInformaion.action?UId=<%=user.getUId()%>">修改</a>
-		          	<a >删除</a>
+		          	<script>
+						function del(value){
+							var like = window.confirm("确定删除吗？");
+							if(like){
+								window.location.href="<%=basePath%>System_User_delUser.action?userId="+value;
+							}
+						}
+					</script>
+		          	<a href="javascript:del(<%=user.getUId()%>)">删除</a>
 		          </td>
 		        </tr>
 			  <%

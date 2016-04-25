@@ -103,6 +103,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="System_User_delUser" class="com.TMMS.Main.action.system.SystemUserDelUserAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 		
 		<action name="SystemProclamationAdd" class="com.TMMS.Main.action.system.SystemProclamationAddAction">
 			<result name="success">
