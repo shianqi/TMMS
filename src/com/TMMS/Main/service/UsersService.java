@@ -168,8 +168,7 @@ public class UsersService {
 		try {
 			UsersDAO usersDAO = new UsersDAO();
 			Users users = usersDAO.findById(Uid);
-			users.setUState(false);
-			usersDAO.save(users);
+			usersDAO.delete(users);
 			return true;
 		} catch (Exception e) {
 			return false;

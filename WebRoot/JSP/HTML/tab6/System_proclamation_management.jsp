@@ -47,14 +47,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          	<a href="${basePath}System_proclamation_showDetail.action?proclamationId=<%=proclamation.getPId()%>">查看</a>&nbsp;
 		          	<a href="${basePath}System_proclamation_fixDetail.action?proclamationId=<%=proclamation.getPId()%>">修改</a>&nbsp;
 		          	<script>
-						function del(){
+						function del(value){
 							var like = window.confirm("确定删除吗？");
 							if(like){
-								window.location.href="<%=basePath%>System_proclamation_Del.action?proclamationId=<%=proclamation.getPId()%>";
+								window.location.href="<%=basePath%>System_proclamation_Del.action?proclamationId="+value;
 							}
 						}
 					</script>
-		          	<a href="javascript:del()">删除</a>
+		          	<a href="javascript:del(<%=proclamation.getPId()%>)">删除</a>
 		          </td>
 		        </tr>
 			  <%
