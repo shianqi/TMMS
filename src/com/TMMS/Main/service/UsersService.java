@@ -13,6 +13,7 @@ import com.TMMS.Main.DAO.UlDAO;
 import com.TMMS.Main.DAO.UsersDAO;
 import com.TMMS.Main.bean.Ul;
 import com.TMMS.Main.bean.Users;
+import com.TMMS.Main.util.MD5;
 import com.opensymphony.xwork2.ActionContext;
 
 public class UsersService {
@@ -62,6 +63,36 @@ public class UsersService {
 			return false;
 		}
 	}
+	
+	public boolean systemfixUserInformation(long username,String uPw,String uName,
+			String uEmail,String uPhone,boolean upt,boolean upc,boolean upb,boolean upf,boolean ups){
+		UsersDAO usersDAO = new UsersDAO();
+		try {
+			Users user = usersDAO.findById(username);
+			if(!uPw.equals("")){
+				user.setUPwd(new MD5().encryptPassword(uPw));
+			}
+			if(!uName.equals("")){
+				user.setUName(uName);
+			}
+			if(!uEmail.equals("")){
+				user.setUEmail(uEmail);
+			}
+			if(!uPhone.equals("")){
+				user.setUPhone(uPhone);
+			}
+			user.setUPT(upt);
+			user.setUPC(upc);
+			user.setUPB(upb);
+			user.setUPF(upf);
+			user.setUPS(ups);
+			usersDAO.save(user);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public boolean fixPassword(Long username,String password_old,String password_new1){
 		UsersDAO usersDAO = new UsersDAO();
 		try {

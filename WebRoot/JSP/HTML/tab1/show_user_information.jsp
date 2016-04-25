@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<%
 	            	}if(request.getSession().getValue("U_P_F").equals("true")){
 	            %>
-				<span class="label label-info">系统报表员</span>
+				<span class="label label-info">财政报表员</span>
 				<%
 	            	}if(request.getSession().getValue("U_P_S").equals("true")){
 	            %>

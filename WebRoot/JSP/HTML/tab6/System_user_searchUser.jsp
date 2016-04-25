@@ -44,6 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          <th>姓名</th>
 		          <th>电子邮箱</th>
 		          <th>手机号</th>
+		          <th>身份</th>
 		          <th>操作</th>
 		        </tr>
 		      </thead>
@@ -63,8 +64,37 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		          <td><%=user.getUEmail()%></td>
 		          <td><%=user.getUPhone()%></td>
 		          <td>
-		          	<a >查看</a>
+		          <%
+		           	if(user.getUPT()){
+		          %>
+		          <span class="label label-default">教师</span>
+		          <% 		
+		           	}
+		           	if(user.getUPC()){
+		          %>
+		          <span class="label label-primary">学院</span>
+		          <% 
+		          	}
+		          	if(user.getUPB()){
+		          %>
+		          <span class="label label-success">图书</span>
+		          <% 
+		          	}
+		          	if(user.getUPF()){
+		          %>
+		          <span class="label label-info">财政</span>
+		          <% 
+		          	}
+		          	if(user.getUPS()){
+		          %>
+		          <span class="label label-warning">系统</span>
+		          <% 
+		          	}
+		          %>
+		          </td>
+		          <td>
 		          	<a href="${basePath}System_User_fixUserInformaion.action?UId=<%=user.getUId()%>">修改</a>
+		          	<a >删除</a>
 		          </td>
 		        </tr>
 			  <%

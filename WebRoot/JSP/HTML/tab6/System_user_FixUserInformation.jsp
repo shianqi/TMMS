@@ -22,17 +22,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</div>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">用户编号</span>
-		  <input type="text" name="uid" class="form-control" placeholder="${user.getUId()}" aria-describedby="basic-addon1" required="required">
+		  <input type="tel" readOnly name="uid" class="form-control" value="${user.getUId()}" placeholder="" aria-describedby="basic-addon1" required="required">
 		</div>
 		<br>
 		<div class="input-group">
-		  <span class="input-group-addon" id="basic-addon1">初始密码</span>
-		  <input type="password" name="upw" class="form-control" placeholder="******" aria-describedby="basic-addon1" required="required">
+		  <span class="input-group-addon" id="basic-addon1">用户密码</span>
+		  <input type="password" name="upw" class="form-control" placeholder="******" aria-describedby="basic-addon1">
 		</div>
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">用户姓名</span>
-		  <input type="text" name="uname" class="form-control" placeholder="${user.getUName()}" aria-describedby="basic-addon1" required="required">
+		  <input type="text" name="uname" class="form-control" placeholder="${user.getUName()}" aria-describedby="basic-addon1">
 		</div>
 		<br>
 		<div class="input-group">
@@ -42,7 +42,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<br>
 		<div class="input-group">
 		  <span class="input-group-addon" id="basic-addon1">电子邮箱</span>
-		  <input type="email" name="uemail" class="form-control" placeholder="${user.getUEmail()}" aria-describedby="basic-addon1" required="required">
+		  <input type="email" name="uemail" class="form-control" placeholder="${user.getUEmail()}" aria-describedby="basic-addon1">
 		</div>
 		<br>
 		<div class="panel panel-default">
