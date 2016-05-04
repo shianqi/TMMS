@@ -9,27 +9,27 @@ import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.TMMS.Main.bean.Oo;
+import com.TMMS.Main.bean.Border;
 
 /**
- * A data access object (DAO) providing persistence and search support for Oo
- * entities. Transaction control of the save(), update() and delete() operations
- * can directly support Spring container-managed transactions or they can be
- * augmented to handle user-managed Spring transactions. Each of these methods
- * provides additional information for how to configure it for the desired type
- * of transaction control.
+ * A data access object (DAO) providing persistence and search support for
+ * Border entities. Transaction control of the save(), update() and delete()
+ * operations can directly support Spring container-managed transactions or they
+ * can be augmented to handle user-managed Spring transactions. Each of these
+ * methods provides additional information for how to configure it for the
+ * desired type of transaction control.
  * 
- * @see com.TMMS.Main.DAO.Oo
+ * @see com.TMMS.Main.DAO.Border
  * @author MyEclipse Persistence Tools
  */
-public class OoDAO extends BaseHibernateDAO {
-	private static final Logger log = LoggerFactory.getLogger(OoDAO.class);
+public class BorderDAO extends BaseHibernateDAO {
+	private static final Logger log = LoggerFactory.getLogger(BorderDAO.class);
 	// property constants
-	public static final String OO_TYPE = "ooType";
-	public static final String OO_REASON = "ooReason";
+	public static final String BORDER_TYPE = "borderType";
+	public static final String BORDER_REASON = "borderReason";
 
-	public void save(Oo transientInstance) {
-		log.debug("saving Oo instance");
+	public void save(Border transientInstance) {
+		log.debug("saving Border instance");
 		try {
 			getSession().save(transientInstance);
 			log.debug("save successful");
@@ -39,8 +39,8 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void delete(Oo persistentInstance) {
-		log.debug("deleting Oo instance");
+	public void delete(Border persistentInstance) {
+		log.debug("deleting Border instance");
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -50,10 +50,11 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public Oo findById(java.lang.Long id) {
-		log.debug("getting Oo instance with id: " + id);
+	public Border findById(java.lang.Long id) {
+		log.debug("getting Border instance with id: " + id);
 		try {
-			Oo instance = (Oo) getSession().get("com.TMMS.Main.bean.Oo", id);
+			Border instance = (Border) getSession().get(
+					"com.TMMS.Main.DAO.Border", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -61,10 +62,11 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public List findByExample(Oo instance) {
-		log.debug("finding Oo instance by example");
+	public List findByExample(Border instance) {
+		log.debug("finding Border instance by example");
 		try {
-			List results = getSession().createCriteria("com.TMMS.Main.bean.Oo")
+			List results = getSession()
+					.createCriteria("com.TMMS.Main.bean.Border")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -76,11 +78,11 @@ public class OoDAO extends BaseHibernateDAO {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Oo instance with property: " + propertyName
+		log.debug("finding Border instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Oo as model where model." + propertyName
-					+ "= ?";
+			String queryString = "from Border as model where model."
+					+ propertyName + "= ?";
 			Query queryObject = getSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
 			return queryObject.list();
@@ -90,18 +92,18 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public List findByOoType(Object ooType) {
-		return findByProperty(OO_TYPE, ooType);
+	public List findByBorderType(Object borderType) {
+		return findByProperty(BORDER_TYPE, borderType);
 	}
 
-	public List findByOoReason(Object ooReason) {
-		return findByProperty(OO_REASON, ooReason);
+	public List findByBorderReason(Object borderReason) {
+		return findByProperty(BORDER_REASON, borderReason);
 	}
 
 	public List findAll() {
-		log.debug("finding all Oo instances");
+		log.debug("finding all Border instances");
 		try {
-			String queryString = "from Oo";
+			String queryString = "from Border";
 			Query queryObject = getSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -110,10 +112,10 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public Oo merge(Oo detachedInstance) {
-		log.debug("merging Oo instance");
+	public Border merge(Border detachedInstance) {
+		log.debug("merging Border instance");
 		try {
-			Oo result = (Oo) getSession().merge(detachedInstance);
+			Border result = (Border) getSession().merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -122,8 +124,8 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void attachDirty(Oo instance) {
-		log.debug("attaching dirty Oo instance");
+	public void attachDirty(Border instance) {
+		log.debug("attaching dirty Border instance");
 		try {
 			getSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -133,8 +135,8 @@ public class OoDAO extends BaseHibernateDAO {
 		}
 	}
 
-	public void attachClean(Oo instance) {
-		log.debug("attaching clean Oo instance");
+	public void attachClean(Border instance) {
+		log.debug("attaching clean Border instance");
 		try {
 			getSession().buildLockRequest(LockOptions.NONE).lock(instance);
 			log.debug("attach successful");

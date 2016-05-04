@@ -11,8 +11,9 @@ public abstract class AbstractOo implements java.io.Serializable {
 
 	// Fields
 
-	private OoId id;
 	private Long ooId;
+	private Users users;
+	private Orders orders;
 	private Date ooTime;
 	private Boolean ooType;
 	private String ooReason;
@@ -24,17 +25,19 @@ public abstract class AbstractOo implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractOo(OoId id, Long ooId, Boolean ooType) {
-		this.id = id;
+	public AbstractOo(Long ooId, Users users, Orders orders, Boolean ooType) {
 		this.ooId = ooId;
+		this.users = users;
+		this.orders = orders;
 		this.ooType = ooType;
 	}
 
 	/** full constructor */
-	public AbstractOo(OoId id, Long ooId, Date ooTime, Boolean ooType,
-			String ooReason) {
-		this.id = id;
+	public AbstractOo(Long ooId, Users users, Orders orders, Date ooTime,
+			Boolean ooType, String ooReason) {
 		this.ooId = ooId;
+		this.users = users;
+		this.orders = orders;
 		this.ooTime = ooTime;
 		this.ooType = ooType;
 		this.ooReason = ooReason;
@@ -42,20 +45,28 @@ public abstract class AbstractOo implements java.io.Serializable {
 
 	// Property accessors
 
-	public OoId getId() {
-		return this.id;
-	}
-
-	public void setId(OoId id) {
-		this.id = id;
-	}
-
 	public Long getOoId() {
 		return this.ooId;
 	}
 
 	public void setOoId(Long ooId) {
 		this.ooId = ooId;
+	}
+
+	public Users getUsers() {
+		return this.users;
+	}
+
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+
+	public Orders getOrders() {
+		return this.orders;
+	}
+
+	public void setOrders(Orders orders) {
+		this.orders = orders;
 	}
 
 	public Date getOoTime() {

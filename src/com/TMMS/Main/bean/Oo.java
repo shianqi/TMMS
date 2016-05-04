@@ -14,13 +14,14 @@ public class Oo extends AbstractOo implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Oo(OoId id, Long ooId, Boolean ooType) {
-		super(id, ooId, ooType);
+	public Oo(Long ooId, Users users, Orders orders, Boolean ooType) {
+		super(ooId, users, orders, ooType);
 	}
 
 	/** full constructor */
-	public Oo(OoId id, Long ooId, Date ooTime, Boolean ooType, String ooReason) {
-		super(id, ooId, ooTime, ooType, ooReason);
+	public Oo(Long ooId, Users users, Orders orders, Date ooTime,
+			Boolean ooType, String ooReason) {
+		super(ooId, users, orders, ooTime, ooType, ooReason);
 	}
 
 }

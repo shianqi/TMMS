@@ -17,16 +17,57 @@ import com.TMMS.Main.util.MD5;
 import com.opensymphony.xwork2.ActionContext;
 
 public class UsersService {
+	public static boolean haveTeacherPurview(){
+		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
+		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
+			return false;
+		}
+		if(sessionMap.get("U_P_T").equals("true")){
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean haveCollegePurview(){
+		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
+		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
+			return false;
+		}
+		if(sessionMap.get("U_P_C").equals("true")){
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean haveBookPurview(){
+		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
+		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
+			return false;
+		}
+		if(sessionMap.get("U_P_B").equals("true")){
+			return true;
+		}
+		return false;
+	}
+	
+	public static boolean haveFinancialPurview(){
+		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
+		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
+			return false;
+		}
+		if(sessionMap.get("U_P_F").equals("true")){
+			return true;
+		}
+		return false;
+	}
+	
 	public static boolean haveSystemPurview(){
 		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
 		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){
 			return false;
 		}
 		if(sessionMap.get("U_P_S").equals("true")){
-			SystemService service = new SystemService();
-			if(service.systemProclamationShow()){
-				return true;
-			}
+			return true;
 		}
 		return false;
 	}

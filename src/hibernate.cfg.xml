@@ -26,6 +26,7 @@
 		<mapping resource="com/TMMS/Main/bean/Orders.hbm.xml" />
 		<mapping resource="com/TMMS/Main/bean/Proclamation.hbm.xml" />
 		<mapping resource="com/TMMS/Main/bean/Books.hbm.xml" />
+		<mapping resource="com/TMMS/Main/bean/Border.hbm.xml" />
 
 	</session-factory>
 
