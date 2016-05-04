@@ -15,16 +15,19 @@ public class Books extends AbstractBooks implements java.io.Serializable {
 
 	/** minimal constructor */
 	public Books(Long BId, String BName, String BAuthor, Long BPrice,
-			String BIsbn, String BPress, String BOrder, Boolean BState) {
-		super(BId, BName, BAuthor, BPrice, BIsbn, BPress, BOrder, BState);
+			String BIsbn, String BPress, String BOrder, Boolean BState,
+			Long BReserve) {
+		super(BId, BName, BAuthor, BPrice, BIsbn, BPress, BOrder, BState,
+				BReserve);
 	}
 
 	/** full constructor */
 	public Books(Long BId, String BName, String BAuthor, Long BPrice,
 			String BIsbn, String BPress, String BOrder, String BPlan,
-			String BBorders, String BGrand, Boolean BState, Set bos) {
+			String BBorders, String BGrand, Boolean BState, Long BReserve,
+			Set bos) {
 		super(BId, BName, BAuthor, BPrice, BIsbn, BPress, BOrder, BPlan,
-				BBorders, BGrand, BState, bos);
+				BBorders, BGrand, BState, BReserve, bos);
 	}
 
 }

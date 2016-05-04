@@ -35,6 +35,7 @@ public class BooksDAO extends BaseHibernateDAO {
 	public static final String _BBORDERS = "BBorders";
 	public static final String _BGRAND = "BGrand";
 	public static final String _BSTATE = "BState";
+	public static final String _BRESERVE = "BReserve";
 
 	public void save(Books transientInstance) {
 		log.debug("saving Books instance");
@@ -138,6 +139,10 @@ public class BooksDAO extends BaseHibernateDAO {
 
 	public List findByBState(Object BState) {
 		return findByProperty(_BSTATE, BState);
+	}
+
+	public List findByBReserve(Object BReserve) {
+		return findByProperty(_BRESERVE, BReserve);
 	}
 
 	public List findAll() {

@@ -10,6 +10,7 @@ public abstract class AbstractBo implements java.io.Serializable {
 	// Fields
 
 	private BoId id;
+	private Long boNumber;
 
 	// Constructors
 
@@ -18,8 +19,9 @@ public abstract class AbstractBo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractBo(BoId id) {
+	public AbstractBo(BoId id, Long boNumber) {
 		this.id = id;
+		this.boNumber = boNumber;
 	}
 
 	// Property accessors
@@ -30,6 +32,14 @@ public abstract class AbstractBo implements java.io.Serializable {
 
 	public void setId(BoId id) {
 		this.id = id;
+	}
+
+	public Long getBoNumber() {
+		return this.boNumber;
+	}
+
+	public void setBoNumber(Long boNumber) {
+		this.boNumber = boNumber;
 	}
 
 }

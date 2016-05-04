@@ -40,6 +40,9 @@
         <property name="BState" type="java.lang.Boolean">
             <column name="B_STATE" precision="1" scale="0" not-null="true" />
         </property>
+        <property name="BReserve" type="java.lang.Long">
+            <column name="B_RESERVE" precision="10" scale="0" not-null="true" />
+        </property>
         <set name="bos" inverse="true">
             <key>
                 <column name="BO_B_ID" precision="16" scale="0" not-null="true" />

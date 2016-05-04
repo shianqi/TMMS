@@ -23,6 +23,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 	private String BBorders;
 	private String BGrand;
 	private Boolean BState;
+	private Long BReserve;
 	private Set bos = new HashSet(0);
 
 	// Constructors
@@ -33,7 +34,8 @@ public abstract class AbstractBooks implements java.io.Serializable {
 
 	/** minimal constructor */
 	public AbstractBooks(Long BId, String BName, String BAuthor, Long BPrice,
-			String BIsbn, String BPress, String BOrder, Boolean BState) {
+			String BIsbn, String BPress, String BOrder, Boolean BState,
+			Long BReserve) {
 		this.BId = BId;
 		this.BName = BName;
 		this.BAuthor = BAuthor;
@@ -42,12 +44,14 @@ public abstract class AbstractBooks implements java.io.Serializable {
 		this.BPress = BPress;
 		this.BOrder = BOrder;
 		this.BState = BState;
+		this.BReserve = BReserve;
 	}
 
 	/** full constructor */
 	public AbstractBooks(Long BId, String BName, String BAuthor, Long BPrice,
 			String BIsbn, String BPress, String BOrder, String BPlan,
-			String BBorders, String BGrand, Boolean BState, Set bos) {
+			String BBorders, String BGrand, Boolean BState, Long BReserve,
+			Set bos) {
 		this.BId = BId;
 		this.BName = BName;
 		this.BAuthor = BAuthor;
@@ -59,6 +63,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 		this.BBorders = BBorders;
 		this.BGrand = BGrand;
 		this.BState = BState;
+		this.BReserve = BReserve;
 		this.bos = bos;
 	}
 
@@ -150,6 +155,14 @@ public abstract class AbstractBooks implements java.io.Serializable {
 
 	public void setBState(Boolean BState) {
 		this.BState = BState;
+	}
+
+	public Long getBReserve() {
+		return this.BReserve;
+	}
+
+	public void setBReserve(Long BReserve) {
+		this.BReserve = BReserve;
 	}
 
 	public Set getBos() {

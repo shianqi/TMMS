@@ -12,8 +12,8 @@ public class Bo extends AbstractBo implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Bo(BoId id) {
-		super(id);
+	public Bo(BoId id, Long boNumber) {
+		super(id, boNumber);
 	}
 
 }

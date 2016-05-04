@@ -14,5 +14,8 @@
                 <column name="BO_O_ID" precision="16" scale="0" />
             </key-many-to-one>
         </composite-id>
+        <property name="boNumber" type="java.lang.Long">
+            <column name="BO_NUMBER" precision="10" scale="0" not-null="true" />
+        </property>
     </class>
 </hibernate-mapping>

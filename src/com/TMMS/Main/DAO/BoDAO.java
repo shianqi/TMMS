@@ -23,8 +23,8 @@ import com.TMMS.Main.bean.Bo;
  */
 public class BoDAO extends BaseHibernateDAO {
 	private static final Logger log = LoggerFactory.getLogger(BoDAO.class);
-
 	// property constants
+	public static final String BO_NUMBER = "boNumber";
 
 	public void save(Bo transientInstance) {
 		log.debug("saving Bo instance");
@@ -86,6 +86,10 @@ public class BoDAO extends BaseHibernateDAO {
 			log.error("find by property name failed", re);
 			throw re;
 		}
+	}
+
+	public List findByBoNumber(Object boNumber) {
+		return findByProperty(BO_NUMBER, boNumber);
 	}
 
 	public List findAll() {
