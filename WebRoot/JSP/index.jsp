@@ -107,7 +107,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <li class="J_menuItem" href="html/tab4/book_fix_book_information.html" data-index="1">修改教材信息</li>
                                         <li class="J_menuItem" href="html/tab4/book_find_book.html" data-index="1">查找教材</li>
                                         <li class="J_menuItem" href="html/tab4/book_delete_book.html" data-index="1">删除教材</li>
-                                        <li class="J_menuItem" href="html/tab4/book_check_book.html" data-index="1">审批新添加教材</li>
+                                        <li class="J_menuItem" href="<%=basePath%>bookManagerCheckNewBooks.action" data-index="1">审批新添加教材</li>
                                     </ul>
                                 </dd>
                                 <dd>

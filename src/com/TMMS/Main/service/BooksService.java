@@ -1,12 +1,17 @@
 package com.TMMS.Main.service;
 
 import java.util.Date;
+import java.util.List;
+
+import org.apache.struts2.ServletActionContext;
 
 import com.TMMS.Main.DAO.BooksDAO;
 import com.TMMS.Main.DAO.BorderDAO;
+import com.TMMS.Main.DAO.ProclamationDAO;
 import com.TMMS.Main.DAO.UsersDAO;
 import com.TMMS.Main.bean.Books;
 import com.TMMS.Main.bean.Border;
+import com.TMMS.Main.bean.Proclamation;
 import com.TMMS.Main.bean.Users;
 
 public class BooksService {
@@ -67,6 +72,28 @@ public class BooksService {
 			return true;
 		} catch (Exception e) {
 			return false;
+		}
+	}
+	
+	public boolean bookManagerSeeNewBooks(){
+		try {
+			BooksDAO bDao = new BooksDAO();
+			List<Books> list = bDao.findAllNewBooks();
+			ServletActionContext.getRequest().setAttribute("bookManagerSeeNewBooksList", list);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public Books bookManagerSeeNewBookDetail(Long bookId){
+		try {
+			BooksDAO bDao = new BooksDAO();
+			Books books = bDao.findById(bookId);
+			ServletActionContext.getRequest().setAttribute("bookManagerSeeNewBookDetillBook", books);
+			return books;
+		} catch (Exception e) {
+			return null;
 		}
 	}
 }

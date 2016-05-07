@@ -89,6 +89,18 @@ public class BooksDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
+	
+	public List findAllNewBooks(){
+		log.debug("book manager finding all new books");
+		try {
+			String queryString = "from Books where BState=0";
+			Query queryObject = getSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find all failed", re);
+			throw re;
+		}
+	}
 
 	public List findByProperty(String propertyName, Object value) {
 		log.debug("finding Books instance with property: " + propertyName

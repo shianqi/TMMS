@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <div class="panel-heading">
 	        <h3 class="panel-title">用户类别</h3>
 	      </div>
-	      <% Users user = (Users)request.getAttribute("System_user"); %>
+	      <% Users user = (Users)request.getAttribute("bookManagerSeeNewBookDetillBook"); %>
 	      <div class="panel-body">
 	      	<div class="checkbox">
 				<label>

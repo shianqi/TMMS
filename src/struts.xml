@@ -80,6 +80,40 @@
 		</action>
 	</package>
 	
+	<package name="tab3" namespace="/" extends="struts-default, json-default">
+	</package>
+	
+	<!-- 教材管理员 -->
+	<package name="tab4" namespace="/" extends="struts-default, json-default">
+		<action name="bookManagerCheckNewBooks" class="com.TMMS.Main.action.book.BookManagerCheckNewBooksAction">
+			<result name="success">
+				/JSP/HTML/tab4/bookManager_check_newBooks.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		
+		<action name="bookManager_see_newBookDetail" class="com.TMMS.Main.action.book.BookManagerSeeNewBookDetailAction">
+			<result name="success">
+				/JSP/HTML/tab4/bookManager_see_newBookDetail.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		
+		<action name="bookManager_book_check" class="com.TMMS.Main.action.book.BookManagerBookCheckAction">
+			<result name="success">
+				/JSP/HTML/tab4/bookManager_see_newBookDetail.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		
+	</package>
+	
 	<!-- 系统管理员 -->
 	<package name="tab6" namespace="/" extends="struts-default, json-default">
 		<action name="System_User_AddUser" class="com.TMMS.Main.action.system.SystemUserAddUserAction">
