@@ -15,7 +15,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 	private Long BId;
 	private String BName;
 	private String BAuthor;
-	private Long BPrice;
+	private Double BPrice;
 	private String BIsbn;
 	private String BPress;
 	private String BOrder;
@@ -33,7 +33,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractBooks(Long BId, String BName, String BAuthor, Long BPrice,
+	public AbstractBooks(Long BId, String BName, String BAuthor, Double BPrice,
 			String BIsbn, String BPress, String BOrder, Boolean BState,
 			Long BReserve) {
 		this.BId = BId;
@@ -48,7 +48,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AbstractBooks(Long BId, String BName, String BAuthor, Long BPrice,
+	public AbstractBooks(Long BId, String BName, String BAuthor, Double BPrice,
 			String BIsbn, String BPress, String BOrder, String BPlan,
 			String BBorders, String BGrand, Boolean BState, Long BReserve,
 			Set bos) {
@@ -93,11 +93,11 @@ public abstract class AbstractBooks implements java.io.Serializable {
 		this.BAuthor = BAuthor;
 	}
 
-	public Long getBPrice() {
+	public Double getBPrice() {
 		return this.BPrice;
 	}
 
-	public void setBPrice(Long BPrice) {
+	public void setBPrice(Double BPrice) {
 		this.BPrice = BPrice;
 	}
 

@@ -55,7 +55,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">图书管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html\tab2\teacher_apply_book.html" data-index="1">申请添加图书</li>
+                                        <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab2/teacher_book_addBook.jsp" data-index="1">申请添加图书</li>
                                     </ul>
                                 </dd>
                             </dl>

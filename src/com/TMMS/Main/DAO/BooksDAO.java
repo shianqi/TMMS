@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -39,6 +40,7 @@ public class BooksDAO extends BaseHibernateDAO {
 
 	public void save(Books transientInstance) {
 		log.debug("saving Books instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().save(transientInstance);
 			log.debug("save successful");
@@ -46,6 +48,8 @@ public class BooksDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public void delete(Books persistentInstance) {

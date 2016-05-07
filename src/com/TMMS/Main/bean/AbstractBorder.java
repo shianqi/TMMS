@@ -12,8 +12,8 @@ public abstract class AbstractBorder implements java.io.Serializable {
 	// Fields
 
 	private Long borderId;
+	private Books books;
 	private Users users;
-	private Orders orders;
 	private Date borderTime;
 	private Byte borderType;
 	private String borderReason;
@@ -25,20 +25,20 @@ public abstract class AbstractBorder implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractBorder(Long borderId, Users users, Orders orders,
+	public AbstractBorder(Long borderId, Books books, Users users,
 			Byte borderType) {
 		this.borderId = borderId;
+		this.books = books;
 		this.users = users;
-		this.orders = orders;
 		this.borderType = borderType;
 	}
 
 	/** full constructor */
-	public AbstractBorder(Long borderId, Users users, Orders orders,
+	public AbstractBorder(Long borderId, Books books, Users users,
 			Date borderTime, Byte borderType, String borderReason) {
 		this.borderId = borderId;
+		this.books = books;
 		this.users = users;
-		this.orders = orders;
 		this.borderTime = borderTime;
 		this.borderType = borderType;
 		this.borderReason = borderReason;
@@ -54,20 +54,20 @@ public abstract class AbstractBorder implements java.io.Serializable {
 		this.borderId = borderId;
 	}
 
+	public Books getBooks() {
+		return this.books;
+	}
+
+	public void setBooks(Books books) {
+		this.books = books;
+	}
+
 	public Users getUsers() {
 		return this.users;
 	}
 
 	public void setUsers(Users users) {
 		this.users = users;
-	}
-
-	public Orders getOrders() {
-		return this.orders;
-	}
-
-	public void setOrders(Orders orders) {
-		this.orders = orders;
 	}
 
 	public Date getBorderTime() {

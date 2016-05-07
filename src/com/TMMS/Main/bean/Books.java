@@ -14,7 +14,7 @@ public class Books extends AbstractBooks implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Books(Long BId, String BName, String BAuthor, Long BPrice,
+	public Books(Long BId, String BName, String BAuthor, Double BPrice,
 			String BIsbn, String BPress, String BOrder, Boolean BState,
 			Long BReserve) {
 		super(BId, BName, BAuthor, BPrice, BIsbn, BPress, BOrder, BState,
@@ -22,7 +22,7 @@ public class Books extends AbstractBooks implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public Books(Long BId, String BName, String BAuthor, Long BPrice,
+	public Books(Long BId, String BName, String BAuthor, Double BPrice,
 			String BIsbn, String BPress, String BOrder, String BPlan,
 			String BBorders, String BGrand, Boolean BState, Long BReserve,
 			Set bos) {

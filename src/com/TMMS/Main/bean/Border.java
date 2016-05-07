@@ -14,14 +14,14 @@ public class Border extends AbstractBorder implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public Border(Long borderId, Users users, Orders orders, Byte borderType) {
-		super(borderId, users, orders, borderType);
+	public Border(Long borderId, Books books, Users users, Byte borderType) {
+		super(borderId, books, users, borderType);
 	}
 
 	/** full constructor */
-	public Border(Long borderId, Users users, Orders orders, Date borderTime,
+	public Border(Long borderId, Books books, Users users, Date borderTime,
 			Byte borderType, String borderReason) {
-		super(borderId, users, orders, borderTime, borderType, borderReason);
+		super(borderId, books, users, borderTime, borderType, borderReason);
 	}
 
 }

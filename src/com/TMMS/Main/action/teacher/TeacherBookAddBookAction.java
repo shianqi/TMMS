@@ -1,12 +1,16 @@
 package com.TMMS.Main.action.teacher;
 
+import java.util.Map;
+
+import com.TMMS.Main.service.BooksService;
 import com.TMMS.Main.service.UsersService;
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class TeacherBookAddBookAction extends ActionSupport{
 	private String BName;
 	private String BAuthor;
-	private Long BPrice;
+	private Double BPrice;
 	private String BIsbn;
 	private String BPress;
 	private String BOrder;
@@ -30,11 +34,11 @@ public class TeacherBookAddBookAction extends ActionSupport{
 		BAuthor = bAuthor;
 	}
 
-	public Long getBPrice() {
+	public Double getBPrice() {
 		return BPrice;
 	}
 
-	public void setBPrice(Long bPrice) {
+	public void setBPrice(Double bPrice) {
 		BPrice = bPrice;
 	}
 
@@ -90,7 +94,21 @@ public class TeacherBookAddBookAction extends ActionSupport{
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
 		if(UsersService.haveTeacherPurview()){
+			Map<String, Object> sessionMap = ActionContext.getContext().getSession();
+			long username = Long.valueOf(String.valueOf(sessionMap.get("U_ID")));
+			BooksService booksService = new BooksService();
 			
+			if(BPlan==null){
+				BPlan="false";
+			}
+			if(BBorders==null){
+				BBorders="false";
+			}
+			if(BGrand==null){
+				BGrand="false";
+			}
+			booksService.teacherAddBook(username, BName, BAuthor, BPrice, BIsbn, BPress, BOrder, BPlan, BBorders, BGrand);
+			return SUCCESS;
 		}
 		return ERROR;
 	}

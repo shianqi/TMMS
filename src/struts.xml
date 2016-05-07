@@ -68,6 +68,17 @@
 		</action>
 	</package>
 	
+	<!-- 教师用户 -->
+	<package name="tab2" namespace="/" extends="struts-default, json-default">
+		<action name="teacherBookAddBook" class="com.TMMS.Main.action.teacher.TeacherBookAddBookAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+	</package>
 	
 	<!-- 系统管理员 -->
 	<package name="tab6" namespace="/" extends="struts-default, json-default">

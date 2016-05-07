@@ -8,7 +8,7 @@
     <class name="com.TMMS.Main.bean.Books" table="BOOKS" schema="SHIANQI">
         <id name="BId" type="java.lang.Long">
             <column name="B_ID" precision="16" scale="0" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="BName" type="java.lang.String">
             <column name="B_NAME" length="30" not-null="true" />
@@ -16,7 +16,7 @@
         <property name="BAuthor" type="java.lang.String">
             <column name="B_AUTHOR" length="16" not-null="true" />
         </property>
-        <property name="BPrice" type="java.lang.Long">
+        <property name="BPrice" type="java.lang.Double">
             <column name="B_PRICE" precision="16" scale="0" not-null="true" />
         </property>
         <property name="BIsbn" type="java.lang.String">

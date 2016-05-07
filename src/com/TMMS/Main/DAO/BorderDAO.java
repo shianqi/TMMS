@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,6 +30,7 @@ public class BorderDAO extends BaseHibernateDAO {
 	public static final String BORDER_REASON = "borderReason";
 
 	public void save(Border transientInstance) {
+		Transaction transaction= getSession().beginTransaction();
 		log.debug("saving Border instance");
 		try {
 			getSession().save(transientInstance);
@@ -37,6 +39,8 @@ public class BorderDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public void delete(Border persistentInstance) {
@@ -54,7 +58,7 @@ public class BorderDAO extends BaseHibernateDAO {
 		log.debug("getting Border instance with id: " + id);
 		try {
 			Border instance = (Border) getSession().get(
-					"com.TMMS.Main.DAO.Border", id);
+					"com.TMMS.Main.bean.Border", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
