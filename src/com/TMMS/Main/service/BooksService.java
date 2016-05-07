@@ -1,5 +1,6 @@
 package com.TMMS.Main.service;
 
+import java.awt.print.Book;
 import java.util.Date;
 import java.util.List;
 
@@ -46,7 +47,7 @@ public class BooksService {
 			book.setBGrand(BGrand);
 
 			book.setBReserve(reserve);
-			book.setBState(false);
+			book.setBState(0);
 			
 			BooksDAO booksDAO = new BooksDAO();
 			booksDAO.save(book);
@@ -94,6 +95,75 @@ public class BooksService {
 			return books;
 		} catch (Exception e) {
 			return null;
+		}
+	}
+	
+	public boolean bookManagerCheckOK(Long username,Long BId,String BName,String BAuthor,Double BPrice,
+			String BIsbn,String BPress,String BOrder,String BPlan,String BBorders,String BGrand){
+		
+			BooksDAO bDao = new BooksDAO();
+			BorderDAO borderDAO = new BorderDAO();
+			UsersDAO usersDAO = new UsersDAO();
+			Books book = bDao.findById(BId);
+			book.setBName(BName);
+			book.setBAuthor(BAuthor);
+			book.setBPrice(BPrice);
+			book.setBIsbn(BIsbn);
+			book.setBPress(BPress);
+			book.setBOrder(BOrder);
+			if(BPlan==null){
+				BPlan = "false";
+			}
+			if(BBorders==null){
+				BBorders = "false";
+			}
+			if(BGrand==null){
+				BGrand = "false";
+			}
+			book.setBPlan(BPlan);
+			book.setBBorders(BBorders);
+			book.setBGrand(BGrand);
+			book.setBState(1);
+			bDao.save(book);
+			
+			Border border = new Border();
+			border.setBooks(book);
+			Users user = usersDAO.findById(username);
+			border.setUsers(user);
+			border.setBorderTime(new Date(System.currentTimeMillis()));
+			int a= 1;
+			Byte stateByte = (byte)a;
+			border.setBorderType(stateByte);
+			borderDAO.save(border);
+			
+			
+			return true;
+		
+	}
+	
+	public boolean bookManagerCheckError(Long username,Long BId,String reason){
+		try {
+			BorderDAO borderDao = new BorderDAO();
+			BooksDAO booksDAO = new BooksDAO();
+			UsersDAO uDao = new UsersDAO();
+			Border border = new Border();
+			Books books = booksDAO.findById(BId);
+			books.setBState(2);
+			booksDAO.save(books);
+			Users user = uDao.findById(username);
+			
+			border.setBooks(books);
+			border.setUsers(user);
+			border.setBorderTime(new Date(System.currentTimeMillis()));
+			int a= 2;
+			Byte stateByte = (byte)a;
+			border.setBorderType(stateByte);
+			border.setBorderReason(reason);
+			borderDao.save(border);
+			
+			return true;
+		} catch (Exception e) {
+			return false;
 		}
 	}
 }

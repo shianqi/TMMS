@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        	<input style="display:none;" type="text" name="state" class="form-control" placeholder="" value="0" aria-describedby="basic-addon1" required="required">
        	<div class="input-group">
 			<span class="input-group-addon" id="basic-addon1">审核不通过原因</span>
-			<textarea class="form-control" name="proclamationText" rows="10" placeholder="" aria-describedby="basic-addon1" required="required"></textarea>
+			<textarea class="form-control" name="reason" rows="10" placeholder="" aria-describedby="basic-addon1" required="required"></textarea>
 		</div>
 		<br>
     	<div class="btn-group btn-group-justified" role="group" aria-label="...">

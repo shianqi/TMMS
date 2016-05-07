@@ -104,8 +104,8 @@
 		</action>
 		
 		<action name="bookManager_book_check" class="com.TMMS.Main.action.book.BookManagerBookCheckAction">
-			<result name="success">
-				/JSP/HTML/tab4/bookManager_see_newBookDetail.jsp
+			<result name="success" type="chain">
+				bookManagerCheckNewBooks
 			</result>
 			<result name="error">
 				/JSP/Error.jsp

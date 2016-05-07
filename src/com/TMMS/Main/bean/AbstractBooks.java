@@ -22,7 +22,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 	private String BPlan;
 	private String BBorders;
 	private String BGrand;
-	private Boolean BState;
+	private int BState;
 	private Long BReserve;
 	private Set bos = new HashSet(0);
 
@@ -34,7 +34,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 
 	/** minimal constructor */
 	public AbstractBooks(Long BId, String BName, String BAuthor, Double BPrice,
-			String BIsbn, String BPress, String BOrder, Boolean BState,
+			String BIsbn, String BPress, String BOrder, int BState,
 			Long BReserve) {
 		this.BId = BId;
 		this.BName = BName;
@@ -50,7 +50,7 @@ public abstract class AbstractBooks implements java.io.Serializable {
 	/** full constructor */
 	public AbstractBooks(Long BId, String BName, String BAuthor, Double BPrice,
 			String BIsbn, String BPress, String BOrder, String BPlan,
-			String BBorders, String BGrand, Boolean BState, Long BReserve,
+			String BBorders, String BGrand, int BState, Long BReserve,
 			Set bos) {
 		this.BId = BId;
 		this.BName = BName;
@@ -149,11 +149,11 @@ public abstract class AbstractBooks implements java.io.Serializable {
 		this.BGrand = BGrand;
 	}
 
-	public Boolean getBState() {
+	public int getBState() {
 		return this.BState;
 	}
 
-	public void setBState(Boolean BState) {
+	public void setBState(int BState) {
 		this.BState = BState;
 	}
 

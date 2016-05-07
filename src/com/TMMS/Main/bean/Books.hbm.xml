@@ -37,8 +37,8 @@
         <property name="BGrand" type="java.lang.String">
             <column name="B_GRAND" length="30" />
         </property>
-        <property name="BState" type="java.lang.Boolean">
-            <column name="B_STATE" precision="1" scale="0" not-null="true" />
+        <property name="BState" type="java.lang.Integer">
+            <column name="B_STATE" precision="2" scale="0" not-null="true" />
         </property>
         <property name="BReserve" type="java.lang.Long">
             <column name="B_RESERVE" precision="10" scale="0" not-null="true" />
