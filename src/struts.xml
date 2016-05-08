@@ -136,7 +136,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		
+		<action name="bookManagerBookAddBook" class="com.TMMS.Main.action.book.BookManagerBookAddBookAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 系统管理员 -->

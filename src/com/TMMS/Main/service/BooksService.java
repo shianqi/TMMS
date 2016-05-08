@@ -64,7 +64,51 @@ public class BooksService {
 			
 			border.setBooks(book);
 			border.setBorderReason("");
-			//BorderType=1 ±íÊ¾Ìí¼Ó
+			border.setBorderType(borderByte);
+			border.setBorderTime(new Date(System.currentTimeMillis()));
+			border.setUsers(users);
+			
+			borderDAO.save(border);
+			
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean bookManagerAddBook(Long username,String BName,String BAuthor,Double BPrice,
+			String BIsbn,String BPress,String BOrder,String BPlan,String BBorders,String BGrand){
+		try {
+			Books book = new Books();
+			long id = 1;
+			long reserve = 0;
+			book.setBName(BName);
+			book.setBAuthor(BAuthor);
+			book.setBPrice(BPrice);
+			book.setBIsbn(BIsbn);
+			book.setBPress(BPress);
+			book.setBOrder(BOrder);
+			book.setBPlan(BPlan);
+			book.setBBorders(BBorders);
+			book.setBGrand(BGrand);
+
+			book.setBReserve(reserve);
+			book.setBState(1);
+			
+			BooksDAO booksDAO = new BooksDAO();
+			booksDAO.save(book);
+			book = booksDAO.findById(book.getBId());
+			
+			int a= 1;
+			Byte borderByte = (byte)a;
+			Border border = new Border();
+			BorderDAO borderDAO = new BorderDAO();
+			Users users;
+			UsersDAO usersDAO = new UsersDAO();
+			users = usersDAO.findById(username);
+			
+			border.setBooks(book);
+			border.setBorderReason("");
 			border.setBorderType(borderByte);
 			border.setBorderTime(new Date(System.currentTimeMillis()));
 			border.setUsers(users);
