@@ -55,6 +55,7 @@ public class BooksDAO extends BaseHibernateDAO {
 
 	public void delete(Books persistentInstance) {
 		log.debug("deleting Books instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -62,6 +63,8 @@ public class BooksDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public Books findById(java.lang.Long id) {

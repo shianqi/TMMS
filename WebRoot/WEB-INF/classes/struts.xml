@@ -110,6 +110,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacher_book_delBookInformation" class="com.TMMS.Main.action.teacher.Teacher_book_delBookInformationAction">
+			<result name="success" type="chain">
+				teacherBookShowCheckState
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->

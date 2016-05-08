@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         <%
                         	}else if(book.getBState()==2){
                          %>
-                         	<span class="label label-error">未通过</span>
+                         	<span class="label label-warning">未通过</span>
                          <%
                          	}else if(book.getBState()==0){
                           %>

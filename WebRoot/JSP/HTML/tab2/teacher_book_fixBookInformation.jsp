@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
         <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
-                <button type="submit" class="btn btn-default">确认修改</button>
+                <button type="submit" class="btn btn-default">确认修改并重新提交</button>
             </div>
         </div>
     </form>

@@ -267,4 +267,19 @@ public class BooksService {
 			return false;
 		}
 	}
+	
+	public boolean teacherDelBook(Long BookId){
+		try {
+			BooksDAO booksDAO = new BooksDAO();
+			Books book = booksDAO.findById(BookId);
+			
+			if(book.getBState()!=1){
+				booksDAO.delete(book);
+				return true;
+			}
+			return false;
+		} catch (Exception e) {
+			return false;
+		}
+	}
 }
