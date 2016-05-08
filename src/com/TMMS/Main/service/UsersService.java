@@ -1,5 +1,6 @@
 package com.TMMS.Main.service;
 
+import java.lang.Thread.State;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -17,6 +18,12 @@ import com.TMMS.Main.util.MD5;
 import com.opensymphony.xwork2.ActionContext;
 
 public class UsersService {
+	public static long getUserId(){
+		Map<String, Object> sessionMap = ActionContext.getContext().getSession();
+		long username = Long.valueOf(String.valueOf(sessionMap.get("U_ID")));
+		return username;
+	}
+	
 	public static boolean haveTeacherPurview(){
 		Map<String, Object> sessionMap =ActionContext.getContext().getSession();
 		if(sessionMap.get("state")==null||sessionMap.get("state").equals("")){

@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.TMMS.Main.bean.Books;
+import com.TMMS.Main.bean.Border;
 
 /**
  * A data access object (DAO) providing persistence and search support for Books
@@ -101,7 +102,7 @@ public class BooksDAO extends BaseHibernateDAO {
 			throw re;
 		}
 	}
-
+	
 	public List findByProperty(String propertyName, Object value) {
 		log.debug("finding Books instance with property: " + propertyName
 				+ ", value: " + value);

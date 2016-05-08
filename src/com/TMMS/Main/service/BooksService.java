@@ -1,6 +1,7 @@
 package com.TMMS.Main.service;
 
 import java.awt.print.Book;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +54,7 @@ public class BooksService {
 			booksDAO.save(book);
 			book = booksDAO.findById(book.getBId());
 			
-			int a= 1;
+			int a= 0;
 			Byte borderByte = (byte)a;
 			Border border = new Border();
 			BorderDAO borderDAO = new BorderDAO();
@@ -161,6 +162,32 @@ public class BooksService {
 			border.setBorderReason(reason);
 			borderDao.save(border);
 			
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	public boolean teacherShowCheckState(Long username){
+		try {
+			UsersDAO usersDAO = new UsersDAO();
+			Users user = usersDAO.findById(username);
+			
+			BorderDAO borderDAO = new BorderDAO();
+			Border border = new Border();
+			border.setUsers(user);
+			List<Border> borderList = (List<Border>)borderDAO.findByExample(border);
+			
+			List<Books> list = new ArrayList<Books>();
+			
+			for(int i=0;i<borderList.size();i++){
+				System.out.println(borderList.get(i).getBooks().getBId());
+				if(!list.contains(borderList.get(i).getBooks())){
+					list.add(borderList.get(i).getBooks());
+				}
+			}
+			
+			ServletActionContext.getRequest().setAttribute("teacherOwnBooks", list);
 			return true;
 		} catch (Exception e) {
 			return false;

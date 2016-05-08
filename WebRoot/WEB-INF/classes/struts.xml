@@ -78,6 +78,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacherBookShowCheckState" class="com.TMMS.Main.action.teacher.TeacherBookShowCheckStateAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_showCheckState.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<package name="tab3" namespace="/" extends="struts-default, json-default">
