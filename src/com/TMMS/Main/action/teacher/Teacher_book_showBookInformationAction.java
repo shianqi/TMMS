@@ -28,7 +28,7 @@ public class Teacher_book_showBookInformationAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		if(UsersService.haveTeacherPurview()){
+		if(UsersService.haveTeacherPurview()||UsersService.haveCollegePurview()||UsersService.haveBookPurview()){
 			BooksService bService = new BooksService();
 			book = bService.bookManagerSeeNewBookDetail(bookId);
 			return SUCCESS;

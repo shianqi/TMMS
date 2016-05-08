@@ -18,7 +18,7 @@ public class Teacher_book_delBookInformationAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		if(UsersService.haveTeacherPurview()){
+		if(UsersService.haveTeacherPurview()||UsersService.haveCollegePurview()||UsersService.haveBookPurview()){
 			BooksService bService = new BooksService();
 			if(bService.teacherDelBook(bookId)){
 				return SUCCESS;

@@ -256,7 +256,8 @@ public class BooksService {
 			List<Books> list = new ArrayList<Books>();
 			
 			for(int i=0;i<borderList.size();i++){
-				if(!list.contains(borderList.get(i).getBooks())){
+				if(!list.contains(borderList.get(i).getBooks())&&borderList.get(i).getUsers().getUId().equals(username)){
+					
 					list.add(borderList.get(i).getBooks());
 				}
 			}

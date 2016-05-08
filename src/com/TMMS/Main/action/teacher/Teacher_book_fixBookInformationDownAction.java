@@ -107,7 +107,7 @@ public class Teacher_book_fixBookInformationDownAction extends ActionSupport{
 		// TODO Auto-generated method stub
 		Map<String , Object> session = ActionContext.getContext().getSession();
 		long username = Long.valueOf(String.valueOf(session.get("U_ID")));
-		if(UsersService.haveTeacherPurview()){
+		if(UsersService.haveTeacherPurview()||UsersService.haveCollegePurview()||UsersService.haveBookPurview()){
 			BooksService bService = new BooksService();
 			if(bService.teacherFixBookInformation(username,BId, BName, BAuthor, BPrice, BIsbn, BPress, BOrder, BPlan, BBorders, BGrand)){
 				return SUCCESS;
