@@ -94,6 +94,22 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacher_book_fixBookInformation" class="com.TMMS.Main.action.teacher.Teacher_book_showBookInformationAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_fixBookInformation.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="teacher_book_fixBookInformationDown" class="com.TMMS.Main.action.teacher.Teacher_book_fixBookInformationDownAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->

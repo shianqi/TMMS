@@ -186,6 +186,37 @@ public class BooksService {
 		
 	}
 	
+	public boolean teacherFixBookInformation(Long username,Long BId,String BName,String BAuthor,Double BPrice,
+			String BIsbn,String BPress,String BOrder,String BPlan,String BBorders,String BGrand){
+		
+			BooksDAO bDao = new BooksDAO();
+			Books book = bDao.findById(BId);
+			book.setBName(BName);
+			book.setBAuthor(BAuthor);
+			book.setBPrice(BPrice);
+			book.setBIsbn(BIsbn);
+			book.setBPress(BPress);
+			book.setBOrder(BOrder);
+			if(BPlan==null){
+				BPlan = "false";
+			}
+			if(BBorders==null){
+				BBorders = "false";
+			}
+			if(BGrand==null){
+				BGrand = "false";
+			}
+			if(book.getBState()==2){
+				book.setBState(0);
+			}
+			book.setBPlan(BPlan);
+			book.setBBorders(BBorders);
+			book.setBGrand(BGrand);
+			bDao.save(book);
+			return true;
+		
+	}
+	
 	public boolean bookManagerCheckError(Long username,Long BId,String reason){
 		try {
 			BorderDAO borderDao = new BorderDAO();

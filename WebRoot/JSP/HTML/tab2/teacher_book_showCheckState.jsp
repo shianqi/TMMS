@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <tr>
                     <th>#</th>
                     <th>教材名称</th>
-                    <th>时间</th>
+                    <th>出版社</th>
                     <th>审核状态</th>
                     <th>操作</th>
                 </tr>
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <tr class="">
                         <th scope="row"><%=i+1%></th>
                         <td><%=book.getBName()%></td>
-                        <td><%%></td>
+                        <td><%=book.getBPress()%></td>
                         <td>
                         <%
                         	if(book.getBState()==1){
