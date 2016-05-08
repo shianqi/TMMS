@@ -49,35 +49,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         	<span class="label label-success">通过</span>
                         <%
                         	}else if(book.getBState()==2){
+                        	
                          %>
                          	<span class="label label-error">未通过</span>
                          <%
-                         	}else if(book.getBState()==0){
+                         	}
                           %>
-                          <span class="label label-default">未审核</span>
-                          <%
-                          	}
-                           %>
                         </td>
-                        
                         <td>
-                            <a href="${basePath}teacher_book_showBookInformation.action?bookId=<%=book.getBId()%>">查看</a>&nbsp;
-                            <%
-                        		if(book.getBState()!=1){
-                        	%>
-                            <a href="${basePath}teacher_book_fixBookInformation.action?bookId=<%=book.getBId()%>">修改</a>&nbsp;
+                            <a href="${basePath}System_proclamation_showDetail.action?proclamationId=">查看</a>&nbsp;
+                            <a href="${basePath}System_proclamation_fixDetail.action?proclamationId=">修改</a>&nbsp;
                             <script>
                                 function del(value){
                                     var like = window.confirm("警告！此操作无法恢复。确定删除吗？");
                                     if(like){
-                                        window.location.href="<%=basePath%>teacher_book_delBookInformation.action?bookId="+value;
+                                        window.location.href="<%=basePath%>System_proclamation_Del.action?proclamationId="+value;
                                     }
                                 }
                             </script>
-                            <a href="javascript:del(<%=book.getBId()%>)">删除</a>
-                            <%
-                        		}
-                        	%>
+                            <a href="javascript:del(<%%>)">删除</a>
                         </td>
                     </tr>
                     <%

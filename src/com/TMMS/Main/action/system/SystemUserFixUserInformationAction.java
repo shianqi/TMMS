@@ -32,7 +32,7 @@ public class SystemUserFixUserInformationAction extends ActionSupport{
 		if(UsersService.haveSystemPurview()){
 			UsersService usersService = new UsersService();
 			user = usersService.getUserDAO(UId);
-			ServletActionContext.getRequest().setAttribute("System_user", user);
+			ServletActionContext.getRequest().setAttribute("bookManagerSeeNewBookDetillBook", user);
 			return SUCCESS;
 		}
 		return ERROR;

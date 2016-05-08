@@ -86,6 +86,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacher_book_showBookInformation" class="com.TMMS.Main.action.teacher.Teacher_book_showBookInformationAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_showBookInformation.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->
@@ -100,7 +108,7 @@
 		</action>
 		<action name="collegeBookShowCheckState" class="com.TMMS.Main.action.college.CollegeBookShowCheckStateAction">
 			<result name="success">
-				/JSP/HTML/tab2/teacher_book_showCheckState.jsp
+				/JSP/HTML/tab3/college_book_showCheckState.jsp
 			</result>
 			<result name="error">
 				/JSP/Error.jsp
