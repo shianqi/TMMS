@@ -269,6 +269,32 @@ public class BooksService {
 		}
 	}
 	
+	public boolean bookManagerShowCheckState(Long username){
+		try {
+			UsersDAO usersDAO = new UsersDAO();
+			Users user = usersDAO.findById(username);
+			
+			BorderDAO borderDAO = new BorderDAO();
+			Border border = new Border();
+			border.setUsers(user);
+			List<Border> borderList = (List<Border>)borderDAO.findByExample(border);
+			
+			List<Books> list = new ArrayList<Books>();
+			
+			for(int i=0;i<borderList.size();i++){
+				if(!list.contains(borderList.get(i).getBooks())&&borderList.get(i).getBooks().getBState()==1){
+					
+					list.add(borderList.get(i).getBooks());
+				}
+			}
+			
+			ServletActionContext.getRequest().setAttribute("teacherOwnBooks", list);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
 	public boolean teacherDelBook(Long BookId){
 		try {
 			BooksDAO booksDAO = new BooksDAO();

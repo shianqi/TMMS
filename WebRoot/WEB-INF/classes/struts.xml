@@ -176,6 +176,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="bookManagerBookShowCheckState" class="com.TMMS.Main.action.book.BookManagerBookShowCheckStateAction">
+			<result name="success">
+				/JSP/HTML/tab4/bookManager_book_showCheckState.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 系统管理员 -->

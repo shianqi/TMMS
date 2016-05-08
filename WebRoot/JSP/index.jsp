@@ -105,7 +105,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <a href="#" class="dd-item">教材管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab4/bookManager_book_addBook.jsp" data-index="1">添加教材</li>
-                                        <li class="J_menuItem" href="<%=basePath%>collegeBookShowCheckState.action" data-index="1">管理现存教材</li>
+                                        <li class="J_menuItem" href="<%=basePath%>bookManagerBookShowCheckState.action" data-index="1">管理现存教材</li>
                                         <li class="J_menuItem" href="<%=basePath%>bookManagerCheckNewBooks.action" data-index="1">审批新添加教材</li>
                                     </ul>
                                 </dd>
