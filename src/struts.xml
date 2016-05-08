@@ -88,7 +88,24 @@
 		</action>
 	</package>
 	
+	<!-- 学院管理员 -->
 	<package name="tab3" namespace="/" extends="struts-default, json-default">
+		<action name="collegeBookAddBook" class="com.TMMS.Main.action.college.CollegeBookAddBookAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="collegeBookShowCheckState" class="com.TMMS.Main.action.college.CollegeBookShowCheckStateAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_showCheckState.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 教材管理员 -->

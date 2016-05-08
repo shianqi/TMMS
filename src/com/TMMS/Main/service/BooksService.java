@@ -181,7 +181,6 @@ public class BooksService {
 			List<Books> list = new ArrayList<Books>();
 			
 			for(int i=0;i<borderList.size();i++){
-				System.out.println(borderList.get(i).getBooks().getBId());
 				if(!list.contains(borderList.get(i).getBooks())){
 					list.add(borderList.get(i).getBooks());
 				}
