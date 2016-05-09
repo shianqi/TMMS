@@ -184,6 +184,30 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="bookManagerNewOrderCycle" class="com.TMMS.Main.action.book.BookManagerNewOrderCycleAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="bookManagerShowOrderCycle" class="com.TMMS.Main.action.book.BookManagerShowOrderCycleAction">
+			<result name="success">
+				/JSP/HTML/tab4/bookManager_show_orderCycle.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="bookManagerDelOrderCycle" class="com.TMMS.Main.action.book.BookManagerDelOrderCycleAction">
+			<result name="success" type="chain">
+				bookManagerShowOrderCycle
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 系统管理员 -->
@@ -277,5 +301,6 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		
 	</package>
 </struts>

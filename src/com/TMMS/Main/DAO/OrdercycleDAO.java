@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +32,7 @@ public class OrdercycleDAO extends BaseHibernateDAO {
 
 	public void save(Ordercycle transientInstance) {
 		log.debug("saving Ordercycle instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().save(transientInstance);
 			log.debug("save successful");
@@ -38,10 +40,13 @@ public class OrdercycleDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public void delete(Ordercycle persistentInstance) {
 		log.debug("deleting Ordercycle instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -49,6 +54,8 @@ public class OrdercycleDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public Ordercycle findById(java.lang.Long id) {

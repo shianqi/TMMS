@@ -97,8 +97,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">征订周期管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab4/book_new_orderTime.html" data-index="1">发布新征订周期</li>
-                                        <li class="J_menuItem" href="html/tab4/book_fix_orderTime.html" data-index="1">修改征订周期</li>
+                                        <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab4/bookManager_new_orderCycle.jsp" data-index="1">发布新征订周期</li>
+                                        <li class="J_menuItem" href="<%=basePath%>bookManagerShowOrderCycle.action" data-index="1">管理现存征订周期</li>
                                     </ul>
                                 </dd>
                                 <dd>

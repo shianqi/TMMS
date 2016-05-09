@@ -8,7 +8,7 @@
     <class name="com.TMMS.Main.bean.Ordercycle" table="ORDERCYCLE" schema="SHIANQI">
         <id name="ocId" type="java.lang.Long">
             <column name="OC_ID" precision="16" scale="0" />
-            <generator class="assigned" />
+            <generator class="increment" />
         </id>
         <property name="ocSt" type="java.util.Date">
             <column name="OC_ST" length="7" not-null="true" />
