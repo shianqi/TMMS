@@ -118,6 +118,14 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacher_order_searchBook" class="com.TMMS.Main.action.teacher.Teacher_order_searchBookAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_order_findBook.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->

@@ -309,4 +309,11 @@ public class BooksService {
 			return false;
 		}
 	}
+	
+	public void findByInformation(String bookInformation) {
+		// TODO Auto-generated method stub
+		BooksDAO booksDAO = new BooksDAO();
+		List<Books> list = booksDAO.findByKeyword(bookInformation);
+		ServletActionContext.getRequest().setAttribute("keywordBooksList", list);
+	}
 }

@@ -118,6 +118,12 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+			<result name="success">
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->

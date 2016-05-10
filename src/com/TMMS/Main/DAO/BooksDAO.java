@@ -94,6 +94,42 @@ public class BooksDAO extends BaseHibernateDAO {
 		}
 	}
 	
+	public List findByKeyword(String keyword){
+		try {
+			Long uidLong;
+			try {
+				uidLong = Long.parseLong(keyword);
+			} catch (Exception e) {
+				String queryString = "from Books as model where"
+						+ " model.BName  like ? or"
+						+ " model.BAuthor  like ? or"
+						+ " model.BIsbn  like ? or"
+						+ " model.BPress like ? or"
+						+ " model.BOrder like ? ";
+				Query queryObject = getSession().createQuery(queryString);
+				queryObject.setParameter(0, (Object)("%"+keyword+"%"));
+				queryObject.setParameter(1, (Object)("%"+keyword+"%"));
+				queryObject.setParameter(2, (Object)("%"+keyword+"%"));
+				queryObject.setParameter(3, (Object)("%"+keyword+"%"));
+				queryObject.setParameter(4, (Object)("%"+keyword+"%"));
+				return queryObject.list();
+			}
+			String queryString = "from Users as model where"
+					+ " model.BName  like ? or"
+					+ " model.BAuthor like ? or"
+					+ " model.BIsbn    like '%"+uidLong+"%' or"
+					+ " model.BPress like ? ";
+			Query queryObject = getSession().createQuery(queryString);
+			queryObject.setParameter(0, (Object)("%"+keyword+"%"));
+			queryObject.setParameter(1, (Object)("%"+keyword+"%"));
+			queryObject.setParameter(2, (Object)("%"+keyword+"%"));
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	public List findAllNewBooks(){
 		log.debug("book manager finding all new books");
 		try {
