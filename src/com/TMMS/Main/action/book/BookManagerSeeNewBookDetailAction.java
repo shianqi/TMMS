@@ -28,11 +28,10 @@ public class BookManagerSeeNewBookDetailAction extends ActionSupport{
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub
-		if(UsersService.haveBookPurview()){
+		if(UsersService.haveBookPurview()||UsersService.haveCollegePurview()){
 			BooksService bService = new BooksService();
 			book = bService.bookManagerSeeNewBookDetail(bookId);
 			return SUCCESS;
-		
 		}
 		return ERROR;
 	}

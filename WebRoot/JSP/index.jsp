@@ -49,7 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="<%=basePath%>teacher_order_searchBook.action?bookInformation=" data-index="1">向订单中添加图书</li>
                                         <li class="J_menuItem" href="<%=basePath%>teacher_order_showOrder.action" data-index="1">提交订单</li>
-                                        <li class="J_menuItem" href="html/tab2/teacher_fix_order.html" data-index="2">修改征订信息</li>
+                                        <li class="J_menuItem" href="<%=basePath%>teacher_book_showOrderInfromation.action" data-index="2">查看订单状态</li>
                                     </ul>
                                 </dd>
                                 <dd>
@@ -83,7 +83,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">征订信息查看<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab3/college_order_information.html" data-index="1">本学院征订信息</li>
+                                        <li class="J_menuItem" href="<%=basePath%>collegeBookShowAllOrderInfromation.action" data-index="1">院征订信息查看</li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -107,13 +107,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab4/bookManager_book_addBook.jsp" data-index="1">添加教材</li>
                                         <li class="J_menuItem" href="<%=basePath%>bookManagerBookShowCheckState.action" data-index="1">管理现存教材</li>
                                         <li class="J_menuItem" href="<%=basePath%>bookManagerCheckNewBooks.action" data-index="1">审批新添加教材</li>
-                                    </ul>
-                                </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">征订管理<span class="scm dd-ar"></span></a>
-                                    <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab4/book_show_orderInformation.html" data-index="1">查看征订信息</li>
-                                        <li class="J_menuItem" href="html/tab4/book_order_information.html" data-index="1">征订信息统计</li>
                                     </ul>
                                 </dd>
                             </dl>

@@ -158,6 +158,22 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacher_book_showOrderInfromation" class="com.TMMS.Main.action.teacher.Teacher_book_showOrderInfromationkAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_showOrderInformation.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="teacher_order_showDetail" class="com.TMMS.Main.action.teacher.Teacher_book_Teacher_order_showDetailAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_order_showDetail.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->
@@ -173,6 +189,14 @@
 		<action name="collegeBookShowCheckState" class="com.TMMS.Main.action.college.CollegeBookShowCheckStateAction">
 			<result name="success">
 				/JSP/HTML/tab3/college_book_showCheckState.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="collegeBookShowAllOrderInfromation" class="com.TMMS.Main.action.college.CollegeBookShowAllOrderInfromationAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_showOrderInformation.jsp
 			</result>
 			<result name="error">
 				/JSP/Error.jsp

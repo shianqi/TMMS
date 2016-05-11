@@ -19,8 +19,8 @@
         <property name="OClass" type="java.lang.String">
             <column name="O_CLASS" length="16" />
         </property>
-        <property name="OState" type="java.lang.Boolean">
-            <column name="O_STATE" precision="1" scale="0" />
+        <property name="OState" type="java.lang.Integer">
+            <column name="O_STATE" precision="2" scale="0" />
         </property>
         <property name="OTime" type="java.util.Date">
             <column name="O_TIME" length="7" not-null="true" />

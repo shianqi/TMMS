@@ -380,7 +380,7 @@ public class BooksService {
 			orders.setOrdercycle(ordercycle);
 			orders.setUsers(users);
 			orders.setOTime(new Date(System.currentTimeMillis()));
-			orders.setOState(false);
+			orders.setOState(0);
 			ordersDAO.save(orders);
 			
 			System.out.println(orderList.size());
@@ -398,6 +398,7 @@ public class BooksService {
 				BoDAO boDAO = new BoDAO();
 				boDAO.save(bo);
 			}
+			session.remove("orderList");
 			return true;
 	}
 	
@@ -443,6 +444,74 @@ public class BooksService {
 			return true;
 		} catch (Exception e) {
 			System.out.println("ERROR: BooksService.orderDelBook");
+		}
+		return false;
+	}
+	
+	public boolean showOrderInformation(){
+		try {
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+			
+			OrdersDAO ordersDAO = new OrdersDAO();
+			UsersDAO usersDAO = new UsersDAO();
+			Users user = usersDAO.findById(username);
+			Orders orders = new Orders();
+			orders.setUsers(user);
+			
+			List<Orders> orderList = ordersDAO.findByExample(orders);
+			List<Orders> orderList2 = new ArrayList<Orders>();
+			for(int i=0;i<orderList.size();i++){
+				if(orderList.get(i).getUsers().getUId()==username){
+					orderList2.add(orderList.get(i));
+				}
+			}
+			
+			
+			ServletActionContext.getRequest().setAttribute("UserOrderList", orderList2);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.showOrderInformation");
+		}
+		return false;
+	}
+	
+	public boolean showAllOrderInformation(){
+		try {
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+			
+			OrdersDAO ordersDAO = new OrdersDAO();
+			UsersDAO usersDAO = new UsersDAO();
+			Users user = usersDAO.findById(username);
+			Orders orders = new Orders();
+			orders.setUsers(user);
+			
+			List<Orders> orderList = ordersDAO.findByExample(orders);
+			
+			ServletActionContext.getRequest().setAttribute("UserOrderList", orderList);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.showOrderInformation");
+		}
+		return false;
+	}
+	
+	public boolean showOrderDetaill(Long orderId){
+		try {
+			BoDAO boDAO = new BoDAO();
+			List<Bo> list = boDAO.findAll();
+			List<Bo> list2 = new ArrayList<Bo>();
+			for(int i=0;i<list.size();i++){
+				BoId boId = list.get(i).getId();
+				if(boId.getOrders().getOId()==orderId){
+					list2.add(list.get(i));
+				}
+			}
+			ServletActionContext.getRequest().setAttribute("listDetail", list2);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.showOrderDetaill");
 		}
 		return false;
 	}

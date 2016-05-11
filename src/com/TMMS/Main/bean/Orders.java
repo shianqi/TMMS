@@ -21,7 +21,7 @@ public class Orders extends AbstractOrders implements java.io.Serializable {
 
 	/** full constructor */
 	public Orders(Long OId, Ordercycle ordercycle, Users users, String OClass,
-			Boolean OState, Date OTime, Set oos, Set bos) {
+			Integer OState, Date OTime, Set oos, Set bos) {
 		super(OId, ordercycle, users, OClass, OState, OTime, oos, bos);
 	}
 

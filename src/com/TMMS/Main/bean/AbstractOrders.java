@@ -17,7 +17,7 @@ public abstract class AbstractOrders implements java.io.Serializable {
 	private Ordercycle ordercycle;
 	private Users users;
 	private String OClass;
-	private Boolean OState;
+	private Integer OState;
 	private Date OTime;
 	private Set oos = new HashSet(0);
 	private Set bos = new HashSet(0);
@@ -39,7 +39,7 @@ public abstract class AbstractOrders implements java.io.Serializable {
 
 	/** full constructor */
 	public AbstractOrders(Long OId, Ordercycle ordercycle, Users users,
-			String OClass, Boolean OState, Date OTime, Set oos, Set bos) {
+			String OClass, Integer OState, Date OTime, Set oos, Set bos) {
 		this.OId = OId;
 		this.ordercycle = ordercycle;
 		this.users = users;
@@ -84,11 +84,11 @@ public abstract class AbstractOrders implements java.io.Serializable {
 		this.OClass = OClass;
 	}
 
-	public Boolean getOState() {
+	public Integer getOState() {
 		return this.OState;
 	}
 
-	public void setOState(Boolean OState) {
+	public void setOState(Integer OState) {
 		this.OState = OState;
 	}
 
