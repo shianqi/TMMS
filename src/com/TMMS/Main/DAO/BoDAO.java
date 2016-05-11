@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -27,6 +28,7 @@ public class BoDAO extends BaseHibernateDAO {
 	public static final String BO_NUMBER = "boNumber";
 
 	public void save(Bo transientInstance) {
+		Transaction transaction= getSession().beginTransaction();
 		log.debug("saving Bo instance");
 		try {
 			getSession().save(transientInstance);
@@ -35,6 +37,8 @@ public class BoDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public void delete(Bo persistentInstance) {

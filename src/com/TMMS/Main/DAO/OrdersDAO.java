@@ -1,10 +1,12 @@
 package com.TMMS.Main.DAO;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
 import org.hibernate.LockOptions;
 import org.hibernate.Query;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,6 +32,7 @@ public class OrdersDAO extends BaseHibernateDAO {
 
 	public void save(Orders transientInstance) {
 		log.debug("saving Orders instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().save(transientInstance);
 			log.debug("save successful");
@@ -37,10 +40,13 @@ public class OrdersDAO extends BaseHibernateDAO {
 			log.error("save failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public void delete(Orders persistentInstance) {
 		log.debug("deleting Orders instance");
+		Transaction transaction= getSession().beginTransaction();
 		try {
 			getSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -48,6 +54,8 @@ public class OrdersDAO extends BaseHibernateDAO {
 			log.error("delete failed", re);
 			throw re;
 		}
+		transaction.commit();
+		getSession().close();
 	}
 
 	public Orders findById(java.lang.Long id) {

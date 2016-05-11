@@ -4,19 +4,33 @@ import java.awt.print.Book;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.TMMS.Main.DAO.BoDAO;
 import com.TMMS.Main.DAO.BooksDAO;
 import com.TMMS.Main.DAO.BorderDAO;
+import com.TMMS.Main.DAO.OrdercycleDAO;
+import com.TMMS.Main.DAO.OrdersDAO;
 import com.TMMS.Main.DAO.ProclamationDAO;
 import com.TMMS.Main.DAO.UsersDAO;
+import com.TMMS.Main.bean.Bo;
+import com.TMMS.Main.bean.BoId;
 import com.TMMS.Main.bean.Books;
 import com.TMMS.Main.bean.Border;
+import com.TMMS.Main.bean.Ordercycle;
+import com.TMMS.Main.bean.Orders;
 import com.TMMS.Main.bean.Proclamation;
 import com.TMMS.Main.bean.Users;
+import com.opensymphony.xwork2.ActionContext;
 
 public class BooksService {
+	public class OrderBook{
+		public Long bookId;
+		public Long number;
+	}
+	private List<OrderBook> orderList = new ArrayList<OrderBook>();
 	/**
 	 * teacher用户添加图书
 	 * @param username
@@ -315,5 +329,121 @@ public class BooksService {
 		BooksDAO booksDAO = new BooksDAO();
 		List<Books> list = booksDAO.findByKeyword(bookInformation);
 		ServletActionContext.getRequest().setAttribute("keywordBooksList", list);
+	}
+	
+	public boolean orderAddBook(Long bookId,Long number) {
+		// TODO Auto-generated method stub
+		try {
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			orderList = (ArrayList<OrderBook>)session.get("orderList");
+			OrderBook orderBook = new OrderBook();
+			orderBook.bookId = bookId;
+			orderBook.number = number;
+			boolean flag = false;
+			if(orderList==null){
+				orderList = new ArrayList<BooksService.OrderBook>();
+			}
+			for(int i=0;i<orderList.size();i++){
+				if(orderList.get(i).bookId==bookId){
+					orderList.get(i).number+=number;
+					flag=true;
+				}
+			}
+			if(!flag){
+				orderList.add(orderBook);
+			}
+			session.put("orderList", orderList);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.orderAddBook");
+		}
+		return false;
+	}
+	
+	public boolean orderSubmit(Long orderCycleId){
+		
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			orderList = (ArrayList<OrderBook>)session.get("orderList");
+			long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+			
+			if(orderList==null||orderList.size()==0){
+				return false;
+			}
+			Orders orders = new Orders();
+			OrdersDAO ordersDAO = new OrdersDAO();
+			OrdercycleDAO ordercycleDAO = new OrdercycleDAO();
+			Ordercycle ordercycle = ordercycleDAO.findById(orderCycleId);
+			UsersDAO usersDAO = new UsersDAO();
+			Users users = usersDAO.findById(username);
+			
+			
+			orders.setOrdercycle(ordercycle);
+			orders.setUsers(users);
+			orders.setOTime(new Date(System.currentTimeMillis()));
+			orders.setOState(false);
+			ordersDAO.save(orders);
+			
+			System.out.println(orderList.size());
+			for(int i=0;i<orderList.size();i++){
+				Bo bo = new Bo();
+				BooksDAO booksDAO = new BooksDAO();
+				Books book = booksDAO.findById(orderList.get(i).bookId);
+				
+				BoId boId = new BoId();
+				boId.setBooks(book);
+				boId.setOrders(orders);
+				
+				bo.setId(boId);
+				bo.setBoNumber(orderList.get(i).number);
+				BoDAO boDAO = new BoDAO();
+				boDAO.save(bo);
+			}
+			return true;
+	}
+	
+	public boolean showOrderList(){
+		try {
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			orderList = (ArrayList<OrderBook>)session.get("orderList");
+			if(orderList==null){
+				orderList=new ArrayList<BooksService.OrderBook>();
+			}
+			List<Books> myBooks = new ArrayList<Books>();
+			
+			for(int i=0;i<orderList.size();i++){
+				BooksDAO booksDAO = new BooksDAO();
+				Books book = booksDAO.findById(orderList.get(i).bookId);
+				myBooks.add(book);
+			}
+			ServletActionContext.getRequest().setAttribute("myOrderList", myBooks);
+			ServletActionContext.getRequest().setAttribute("myOrderListNumber", orderList);
+			
+			OrdercycleDAO oDao = new OrdercycleDAO();
+			List<Ordercycle> list = (List<Ordercycle>)oDao.findAll();
+			ServletActionContext.getRequest().setAttribute("OrderCycleList", list);
+			
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.orderSubmit");
+		}
+		return false;
+	}
+	
+	public boolean orderDelBook(Long bookId){
+		try {
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			orderList = (ArrayList<OrderBook>)session.get("orderList");
+
+			for(int i=0;i<orderList.size();i++){
+				if(orderList.get(i).bookId==bookId){
+					orderList.remove(i);
+					break;
+				}
+			}
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.orderDelBook");
+		}
+		return false;
 	}
 }

@@ -1,5 +1,6 @@
 package com.TMMS.Main.bean;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ public abstract class AbstractOrders implements java.io.Serializable {
 	private Users users;
 	private String OClass;
 	private Boolean OState;
+	private Date OTime;
 	private Set oos = new HashSet(0);
 	private Set bos = new HashSet(0);
 
@@ -27,20 +29,23 @@ public abstract class AbstractOrders implements java.io.Serializable {
 	}
 
 	/** minimal constructor */
-	public AbstractOrders(Long OId, Ordercycle ordercycle, Users users) {
+	public AbstractOrders(Long OId, Ordercycle ordercycle, Users users,
+			Date OTime) {
 		this.OId = OId;
 		this.ordercycle = ordercycle;
 		this.users = users;
+		this.OTime = OTime;
 	}
 
 	/** full constructor */
 	public AbstractOrders(Long OId, Ordercycle ordercycle, Users users,
-			String OClass, Boolean OState, Set oos, Set bos) {
+			String OClass, Boolean OState, Date OTime, Set oos, Set bos) {
 		this.OId = OId;
 		this.ordercycle = ordercycle;
 		this.users = users;
 		this.OClass = OClass;
 		this.OState = OState;
+		this.OTime = OTime;
 		this.oos = oos;
 		this.bos = bos;
 	}
@@ -85,6 +90,14 @@ public abstract class AbstractOrders implements java.io.Serializable {
 
 	public void setOState(Boolean OState) {
 		this.OState = OState;
+	}
+
+	public Date getOTime() {
+		return this.OTime;
+	}
+
+	public void setOTime(Date OTime) {
+		this.OTime = OTime;
 	}
 
 	public Set getOos() {

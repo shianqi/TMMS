@@ -4,22 +4,22 @@ import com.TMMS.Main.service.BooksService;
 import com.TMMS.Main.service.UsersService;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class Teacher_order_submitOrderAction extends ActionSupport{
-	private Long orderId;
+public class Teacher_order_orderDelBookAction extends ActionSupport{
+	private Long bookId;
 	
-	public Long getOrderId() {
-		return orderId;
+	public Long getBookId() {
+		return bookId;
 	}
 
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
+	public void setBookId(Long bookId) {
+		this.bookId = bookId;
 	}
 
 	@Override
 	public String execute() throws Exception {
 		if(UsersService.haveTeacherPurview()){
-			BooksService booksService = new BooksService();
-			if(booksService.orderSubmit(orderId)){
+			BooksService bService = new BooksService();
+			if(bService.orderDelBook(bookId)){
 				return SUCCESS;
 			}
 		}
