@@ -52,7 +52,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						Books book = (Books)list.get(i);
 			   %>
 				<tr class="">
-					<form method="post" action="<%=basePath%>S.action">
+					<form method="post" action="<%=basePath%>teacher_order_addBook.action">
 			          <th scope="row"><%=i+1%></th>
 			          <td><%=book.getBName()%></td>
 			          <td><%=book.getBIsbn()%></td>

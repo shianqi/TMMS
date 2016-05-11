@@ -19,6 +19,9 @@ public class Teacher_order_searchBookAction extends ActionSupport{
 	public String execute() throws Exception {
 		if(UsersService.haveTeacherPurview()){
 			BooksService bService = new BooksService();
+			if(bookInformation==null){
+				bookInformation="";
+			}
 			bService.findByInformation(bookInformation);
 			return SUCCESS;
 		}

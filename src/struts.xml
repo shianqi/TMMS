@@ -126,6 +126,30 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="teacher_order_addBook" class="com.TMMS.Main.action.teacher.Teacher_order_addBookAction">
+			<result name="success" type="chain">
+				teacher_order_searchBook
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="teacher_order_showOrder" class="com.TMMS.Main.action.teacher.Teacher_order_showOrderAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_order_showOrder.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="teacher_order_submitOrder" class="com.TMMS.Main.action.teacher.Teacher_order_submitOrderAction">
+			<result name="success">
+				/JSP/Success.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 学院管理员 -->

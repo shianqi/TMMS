@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                     <a href="#" class="dd-item">征订管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
                                         <li class="J_menuItem" href="<%=basePath%>teacher_order_searchBook.action?bookInformation=" data-index="1">向订单中添加图书</li>
-                                        <li class="J_menuItem" href="html/tab2/teacher_show_order.html" data-index="1">查看征订状态</li>
+                                        <li class="J_menuItem" href="<%=basePath%>teacher_order_showOrder.action" data-index="1">提交订单</li>
                                         <li class="J_menuItem" href="html/tab2/teacher_fix_order.html" data-index="2">修改征订信息</li>
                                     </ul>
                                 </dd>
