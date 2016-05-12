@@ -202,6 +202,31 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
+		<action name="collegeBookShowOrderInfromationNotCheck" class="com.TMMS.Main.action.college.CollegeBookShowOrderInfromationNotCheckAction">
+			<result name="success">
+				/JSP/HTML/tab2/teacher_book_showOrderInformation.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		<action name="college_order_showDetail" class="com.TMMS.Main.action.college.College_order_showDetailAction">
+			<result name="success">
+				/JSP/HTML/tab3/college_order_showDetail.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+		
+		<action name="college_order_checkState" class="com.TMMS.Main.action.college.College_order_checkStateAction">
+			<result name="success" type="chain">
+				collegeBookShowOrderInfromationNotCheck
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 	
 	<!-- 教材管理员 -->

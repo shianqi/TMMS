@@ -69,7 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                         </td>
                         
                         <td>
-                            <a href="${basePath}teacher_order_showDetail.action?orderId=<%=order.getOId()%>">查看</a>&nbsp;
+                            <a href="${basePath}college_order_showDetail.action?orderId=<%=order.getOId()%>">查看</a>&nbsp;
                         </td>
                     </tr>
                  <%

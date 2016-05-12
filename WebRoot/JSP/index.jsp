@@ -77,7 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">征订审核<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab3/college_order_verify.html" data-index="1">教师订单审核</li>
+                                        <li class="J_menuItem" href="<%=basePath%>collegeBookShowOrderInfromationNotCheck.action" data-index="1">教师订单审核</li>
                                     </ul>
                                 </dd>
                                 <dd>
@@ -146,13 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                         <li class="J_menuItem" href="<%=basePath%>System_User_SearchUser.action?userInformation=" data-index="1">查找/修改用户信息</li>
                                     </ul>
                                 </dd>
-                                <dd>
-                                    <a href="#" class="dd-item">征订管理<span class="scm dd-ar"></span></a>
-                                    <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab6/system_find_order.html" data-index="1">查询订单</li>
-                                        <li class="J_menuItem" href="html/tab6/system_gather_order.html:8" data-index="1">汇总订单</li>
-                                    </ul>
-                                </dd>
+
                             </dl>
                         </li>
                         <% 
@@ -164,7 +158,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">使用帮助<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab7/system_help.html" data-index="1">使用帮助</li>
+                                        <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab7/Help.jsp" data-index="1">使用帮助</li>
                                     </ul>
                                 </dd>
                                 <dd>
@@ -185,21 +179,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                             <div class="ad-change-btn"><a id="ad-list" href="javascript:;" class="scm ad-list-btn"></a></div>
                         </div>
                         <div class="ad-top-right">
-                        	<!-- 
-                            <div class="ad-notice">
-                                <ul>
-                                    <li>
-                                        <a href="javascript:;" class="scm nt1"><span class="scm nt-count dot">2</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="scm nt2"><span class="scm nt-count dot">12</span></a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:;" class="scm nt3"><span class="scm nt-count dot">12</span></a>
-                                    </li>
-                                </ul>
-                            </div>
-                             -->
                             <div class="ad-welcom">
                                 <div class="ad-wel-img"><img src="JSP/image/min_logo.png" height="36" width="36"></div>
                                 <div class="ad-wel-text">

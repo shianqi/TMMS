@@ -497,6 +497,26 @@ public class BooksService {
 		return false;
 	}
 	
+	public boolean showOrderInformationNotCheck(){
+		try {
+			Map<String , Object> session = ActionContext.getContext().getSession();
+			long username = Long.valueOf(String.valueOf(session.get("U_ID")));
+			
+			OrdersDAO ordersDAO = new OrdersDAO();
+			UsersDAO usersDAO = new UsersDAO();
+			Users user = usersDAO.findById(username);
+			Orders orders = new Orders();
+			orders.setUsers(user);
+			
+			List<Orders> orderList = ordersDAO.findByOState(0);
+			ServletActionContext.getRequest().setAttribute("UserOrderList", orderList);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.showOrderInformation");
+		}
+		return false;
+	}
+	
 	public boolean showOrderDetaill(Long orderId){
 		try {
 			BoDAO boDAO = new BoDAO();
@@ -509,6 +529,19 @@ public class BooksService {
 				}
 			}
 			ServletActionContext.getRequest().setAttribute("listDetail", list2);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.showOrderDetaill");
+		}
+		return false;
+	}
+	
+	public boolean orderStateChange(Long orderId,Integer state){
+		try {
+			OrdersDAO ordersDAO = new OrdersDAO();
+			Orders order = ordersDAO.findById(orderId);
+			order.setOState(state+1);
+			ordersDAO.save(order);
 			return true;
 		} catch (Exception e) {
 			System.out.println("ERROR: BooksService.showOrderDetaill");
