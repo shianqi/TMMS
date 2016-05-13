@@ -3,7 +3,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
-
+<%
+	int userAll = Integer.parseInt(String.valueOf(request.getAttribute("UserAll")));
+	int userLogin = Integer.parseInt(String.valueOf(request.getAttribute("UserLogin")));
+	int userToday = Integer.parseInt(String.valueOf(request.getAttribute("UserToday")));
+ %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,43 +21,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 	<div style="margin:20px">
 		<div class="row">
-		  <div class="col-sm-3">
+		  <div class="col-sm-4">
 		    <div class="panel panel-default">
 	      <div class="panel-heading">
 	        <h3 class="panel-title">总用户人数</h3>
 	      </div>
 	      <div class="panel-body">
-			<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span>11</h1>
+			<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span><%=userAll%></h1>
 		  </div>
 	    </div>
 		  </div><!-- /.col-lg-4 -->
-		  <div class="col-sm-3"> 
+		  <div class="col-sm-4"> 
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
-		        <h3 class="panel-title">活跃用户人数</h3>
+		        <h3 class="panel-title">今日登陆人次</h3>
 		      </div>
 		      <div class="panel-body">
-		      	<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span>11</h1>
+		      	<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span><%=userLogin%></h1>
 			  </div>
 		    </div>
 		  </div><!-- /.col-lg-4 -->
-		  <div class="col-sm-3">
+		  <div class="col-sm-4">
 		    <div class="panel panel-default">
 		      <div class="panel-heading">
 		        <h3 class="panel-title">今日登陆用户</h3>
 		      </div>
 		      <div class="panel-body">
-		      	<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span>11</h1>
-			  </div>
-		    </div>
-		  </div><!-- /.col-lg-4 -->
-		  <div class="col-sm-3">
-		    <div class="panel panel-default">
-		      <div class="panel-heading">
-		        <h3 class="panel-title">用户类别</h3>
-		      </div>
-		      <div class="panel-body">
-		      	<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span>11</h1>
+		      	<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span><%=userToday%></h1>
 			  </div>
 		    </div>
 		  </div><!-- /.col-lg-4 -->

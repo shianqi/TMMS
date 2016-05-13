@@ -1,6 +1,8 @@
 package com.TMMS.Main.service;
 
 import java.lang.Thread.State;
+import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -237,5 +239,47 @@ public class UsersService {
 		UsersDAO usersDAO = new UsersDAO();
 		List<Users> list = usersDAO.findByKeyword(userInformation);
 		ServletActionContext.getRequest().setAttribute("keywordList", list);
+	}
+	
+	public boolean showUserStatistical(){
+		try {
+			UsersDAO usersDAO = new UsersDAO();
+			List<Users> userList = usersDAO.findAll();
+			int loginTime = 0;
+			int loginToday = 0;
+			
+			Date dNow = new Date();   //当前时间
+			Date dBefore = new Date();
+			Calendar calendar = Calendar.getInstance(); //得到日历
+			calendar.setTime(dNow);//把当前时间赋给日历
+			calendar.add(Calendar.DAY_OF_MONTH, -1);  //设置为前一天
+			dBefore = calendar.getTime();   //得到前一天的时间
+			
+			UlDAO ulDAO = new UlDAO();
+			List<Ul> ulList = ulDAO.findAll();
+			List<Long> todayList = new ArrayList<Long>();
+			for(int i=0;i<ulList.size();i++){
+				if(ulList.get(i).getUlTime().after(dBefore)){
+					loginTime++;
+					int xx= 0;
+					for(int j=0;j<todayList.size();j++){
+						if(todayList.get(j)==ulList.get(i).getUsers().getUId()){
+							xx=1;
+							break;
+						}
+					}
+					if(xx==0){
+						todayList.add(ulList.get(i).getUsers().getUId());
+					}
+				}
+			}
+			ServletActionContext.getRequest().setAttribute("UserAll", userList.size());
+			ServletActionContext.getRequest().setAttribute("UserLogin", loginTime);
+			ServletActionContext.getRequest().setAttribute("UserToday", todayList.size());
+			return true;
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return false;
 	}
 }

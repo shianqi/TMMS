@@ -536,6 +536,25 @@ public class BooksService {
 		return false;
 	}
 	
+	public boolean financialLog(){
+		try {
+			BoDAO boDAO = new BoDAO();
+			List<Bo> list = boDAO.findAll();
+			List<Bo> list2 = new ArrayList<Bo>();
+			for(int i=0;i<list.size();i++){
+				if(list.get(i).getId().getOrders().getOState()==2){
+					list2.add(list.get(i));
+				}
+			}
+			
+			ServletActionContext.getRequest().setAttribute("bookList", list2);
+			return true;
+		} catch (Exception e) {
+			System.out.println("ERROR: BooksService.showOrderDetaill");
+		}
+		return false;
+	}
+	
 	public boolean orderStateChange(Long orderId,Integer state){
 		try {
 			OrdersDAO ordersDAO = new OrdersDAO();

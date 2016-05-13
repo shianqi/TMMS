@@ -120,7 +120,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">财政报表信息<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab5/financial_bill.html" data-index="1">查看财政报表</li>
+                                        <li class="J_menuItem" href="<%=basePath%>financial_log.action" data-index="1">查看财政报表</li>
                                     </ul>
                                 </dd>
                             </dl>
@@ -141,7 +141,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                 <dd>
                                     <a href="#" class="dd-item">用户管理<span class="scm dd-ar"></span></a>
                                     <ul class="ad-item-list">
-                                        <li class="J_menuItem" href="html/tab6/system_show_user.html" data-index="1">用户统计</li>
+                                        <li class="J_menuItem" href="<%=basePath%>System_user_statistical.action" data-index="1">用户统计</li>
                                         <li class="J_menuItem" href="<%=basePath%>JSP/HTML/tab6/System_user_addUser.jsp" data-index="1">添加用户</li>      
                                         <li class="J_menuItem" href="<%=basePath%>System_User_SearchUser.action?userInformation=" data-index="1">查找/修改用户信息</li>
                                     </ul>

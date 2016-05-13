@@ -21,6 +21,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
 	      <p><a class="btn btn-primary btn-lg" href="" role="button">Learn more</a></p>
 	    </div>
+	    <div class="panel panel-default">
+	      <div class="panel-heading">
+	        <h3 class="panel-title">最新公告</h3>
+	      </div>
+	      <div class="panel-body">
+	      	<h3 style="margin-top:0; text-align:center;">${proclamation.getPTitle()}</h3>
+	      	<h5 style="text-align:center;">发布者：${proclamation.getUsers().getUName()}
+	      	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间：${proclamation.getPTime()}</h5>
+	      	<pre style="word-wrap:break-word; word-break:normal; white-space: pre-wrap;">${proclamation.getPText()}</pre>
+	      </div>
+		</div>
 	</div>
 </body>
 </html>

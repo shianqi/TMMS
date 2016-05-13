@@ -10,6 +10,7 @@
 				/index.jsp
 			</result>
 		</action>
+		
 		<action name="logout" class="com.TMMS.Main.action.LogoutAction">
 			<result name="success">
 				/index.jsp
@@ -299,6 +300,17 @@
 		</action>
 	</package>
 	
+	<package name="tab5" namespace="/" extends="struts-default, json-default">
+		<action name="financial_log" class="com.TMMS.Main.action.financial.FinancialLogAction">
+			<result name="success">
+				/JSP/HTML/tab5/financial_show_log.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
+	</package>
+	
 	<!-- 系统管理员 -->
 	<package name="tab6" namespace="/" extends="struts-default, json-default">
 		<action name="System_User_AddUser" class="com.TMMS.Main.action.system.SystemUserAddUserAction">
@@ -390,6 +402,13 @@
 				/JSP/Error.jsp
 			</result>
 		</action>
-		
+		<action name="System_user_statistical" class="com.TMMS.Main.action.system.System_user_statisticalAction">
+			<result name="success">
+				/JSP/HTML/tab6/System_user_statistical.jsp
+			</result>
+			<result name="error">
+				/JSP/Error.jsp
+			</result>
+		</action>
 	</package>
 </struts>

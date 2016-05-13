@@ -43,6 +43,13 @@ public class SystemService {
 		}
 	}
 	
+	public Proclamation systemProclamationShowLast(){
+		ProclamationDAO pDao = new ProclamationDAO();
+		List<Proclamation> proList = pDao.findAll();
+		Proclamation proclamation = proList.get(proList.size()-1);
+		return proclamation;
+	}
+	
 	public Proclamation systemProclamationShowDetail(Long proclamationId){
 		ProclamationDAO pDao = new ProclamationDAO();
 		Proclamation proclamation = pDao.findById(proclamationId);

@@ -9,6 +9,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.TMMS.Main.DAO.OrdercycleDAO;
 import com.TMMS.Main.bean.Ordercycle;
+import com.TMMS.Main.bean.Orders;
 
 public class OrderCycleService {
 	public boolean bookManagerAddOrderCycle(String title,Date time1,Date time2){

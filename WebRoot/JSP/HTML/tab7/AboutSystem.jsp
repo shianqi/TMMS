@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	      </div>
 	      <div class="panel-body">
 	        	Inner Mongolia University of Computer Science, teacher:<br>
-	        	Rong Yan & Yuli Liu.
+	        	Rong Yan & Yulin Liu.
 	      </div>
 		</div>
 		<div class="panel panel-default">
