@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 		<div class="input-group">
             <span class="input-group-addon" id="basic-addon1">标题</span>
-            <input id="title" type="text" name="title" class="form-control" placeholder="" aria-describedby="basic-addon1" >
+            <input id="title" type="text" name="title" class="form-control" placeholder="" aria-describedby="basic-addon1" required="required">
         </div>
         <br><br>
         
@@ -33,7 +33,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
-				<input name="timeStart" type="hidden" id="dtp_input1" value="" /><br/>
+				<input name="timeStart" type="hidden" id="dtp_input1" value="" required="required"/><br/>
             </div>
             
             <div class="form-group">
@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 					<span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
-				<input name="timeEnd" type="hidden" id="dtp_input2" value="" /><br/>
+				<input name="timeEnd" type="hidden" id="dtp_input2" value="" required="required"/><br/>
             </div>
 
         

@@ -11,6 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class FixUserPasswordAction extends ActionSupport{
 	private String password_old;
 	private String password_new1;
+	private String password_new2;
+	
 	public String getPassword_old() {
 		return password_old;
 	}
@@ -35,8 +37,6 @@ public class FixUserPasswordAction extends ActionSupport{
 		this.password_new2 = password_new2;
 	}
 
-	private String password_new2;
-	
 	@Override
 	public String execute() throws Exception {
 		// TODO Auto-generated method stub

@@ -23,13 +23,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="row">
 		  <div class="col-sm-4">
 		    <div class="panel panel-default">
-	      <div class="panel-heading">
-	        <h3 class="panel-title">总用户人数</h3>
-	      </div>
-	      <div class="panel-body">
-			<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span><%=userAll%></h1>
-		  </div>
-	    </div>
+		      <div class="panel-heading">
+		        <h3 class="panel-title">总用户人数</h3>
+		      </div>
+		      <div class="panel-body">
+				<h1 style="font-size:50px; margin:0; text-align:center;"><span class="glyphicon glyphicon-user" style="font-size:25px; opacity:0.70;" aria-hidden="true"></span><%=userAll%></h1>
+			  </div>
+	    	</div>
 		  </div><!-- /.col-lg-4 -->
 		  <div class="col-sm-4"> 
 		    <div class="panel panel-default">

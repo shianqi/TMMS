@@ -18,6 +18,27 @@
 			oracle.jdbc.OracleDriver
 		</property>
 		<property name="myeclipse.connection.profile">TMMS</property>
+		
+		<property name="hbm2ddl.auto">update</property>
+		<property name="hibernate.connection.autocommit">true</property>
+		
+		<!-- 连接池配置 -->
+        <property name="com.mchange.v2.c3p0.ComboPooledDataSource">
+            org.hibernate.connection.C3P0ConnectionProvider
+        </property>
+        
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.timeout">50000</property>
+        <property name="hibernate.c3p0.max_statements">100</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        <!-- 当连接池耗尽并接到获得连接的请求，则新增加连接的数量 -->
+        <property name="hibernate.c3p0.acquire_increment">2</property>
+        <!-- 是否验证，检查连接 -->
+        <property name="hibernate.c3p0.validate">true</property>
+		
+		<property name="connection.characterEncoding">utf8</property>
+		
 		<mapping resource="com/TMMS/Main/bean/Users.hbm.xml" />
 		<mapping resource="com/TMMS/Main/bean/Oo.hbm.xml" />
 		<mapping resource="com/TMMS/Main/bean/Ordercycle.hbm.xml" />
